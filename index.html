@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alex Rivera · software engineer</title>
+  <title>Constantine Lekkos · software engineer</title>
   <!-- modern Google fonts + fallback -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
       <div class="header-inner">
         <div class="logo">
           <span class="logo-mark"><i class="fas fa-terminal"></i></span>
-          <span class="logo-text">alex<span class="accent">.dev</span></span>
+          <span class="logo-text">ecco<span class="accent">.dev</span></span>
         </div>
 
         <nav class="main-nav">
@@ -51,14 +51,14 @@
         <div class="hero-content glass-card">
           <p class="hero-greeting">👋 full-stack · systems · design</p>
           <h1 class="hero-title">Building fast,<br>beautiful, <span class="gradient-text">reliable</span> software.</h1>
-          <p class="hero-desc">I'm Alex — software engineer with 8+ years of experience. I turn complex requirements into crisp, performant products.</p>
+          <p class="hero-desc">I'm Constantine — software engineer with 4+ years of experience. I turn complex requirements into crisp, performant products.</p>
           <div class="hero-actions">
             <a href="#work" class="btn btn-primary">See my work <i class="fas fa-arrow-right"></i></a>
             <a href="#contact" class="btn btn-outline">Let's talk</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><span class="stat-number">30+</span> projects shipped</div>
-            <div class="stat"><span class="stat-number">8</span> years exp</div>
+            <div class="stat"><span class="stat-number">4</span> years exp</div>
             <div class="stat"><span class="stat-number">∞</span> curiosity</div>
           </div>
         </div>
@@ -74,10 +74,10 @@
           <!-- card 1 -->
           <article class="project-card glass-card">
             <div class="project-icon"><i class="fas fa-cloud"></i></div>
-            <h3>Atlas Cloud</h3>
-            <p class="project-description">Scalable infrastructure dashboard – real-time metrics, serverless deployments, built with React & Go.</p>
+            <h3>Banking Web Apps</h3>
+            <p class="project-description">Scalable infrastructure dashboard – real-time metrics, serverless deployments, built with C# and Angular.</p>
             <div class="project-tags">
-              <span>React</span><span>Go</span><span>WebSockets</span>
+              <span>C#</span><span>Angular</span><span>SQL Server</span>
             </div>
             <a href="#" class="project-link">case study <i class="fas fa-arrow-up-right-from-square"></i></a>
           </article>
@@ -85,10 +85,10 @@
           <!-- card 2 -->
           <article class="project-card glass-card">
             <div class="project-icon"><i class="fas fa-brain"></i></div>
-            <h3>NeuroLens</h3>
-            <p class="project-description">AI-powered analytics for product teams. Natural language queries & auto-generated insights.</p>
+            <h3>Hospital Portal</h3>
+            <p class="project-description">Analytics for doctor teams. Automated payment workflows. Data Procedures</p>
             <div class="project-tags">
-              <span>Python</span><span>FastAPI</span><span>OpenAI</span>
+              <span>C#</span><span>Blazor</span><span>ABAP</span>
             </div>
             <a href="#" class="project-link">case study <i class="fas fa-arrow-up-right-from-square"></i></a>
           </article>
@@ -96,10 +96,10 @@
           <!-- card 3 -->
           <article class="project-card glass-card">
             <div class="project-icon"><i class="fas fa-cubes"></i></div>
-            <h3>Quantum UI</h3>
-            <p class="project-description">Open-source component library with 40+ accessible, themeable components. 5k+ GitHub stars.</p>
+            <h3>R&D</h3>
+            <p class="project-description">Research projects building academic knowledge into actual products.</p>
             <div class="project-tags">
-              <span>TypeScript</span><span>CSS</span><span>Vite</span>
+              <span>Angular</span><span>C#</span><span>Fuzzy Logic</span>
             </div>
             <a href="#" class="project-link">case study <i class="fas fa-arrow-up-right-from-square"></i></a>
           </article>
@@ -113,18 +113,16 @@
           <p>I’m a product-minded engineer who loves clean abstractions, delightful UX, and solid engineering. Currently focused on developer tools and real‑time systems.</p>
           <p>Outside code: mechanical keyboards, coffee, and long-distance cycling.</p>
           <div class="skill-pills">
-            <span>TypeScript</span><span>React</span><span>Node.js</span><span>Go</span><span>Rust</span><span>GraphQL</span>
+            <span>TypeScript</span><span>React</span><span>Node.js</span><span>Next.js</span><span>Rust</span><span>C#</span><span>Blazor</span>
           </div>
         </div>
         <div id="contact" class="contact-card glass-card">
           <h2 class="section-title"><i class="fas fa-paper-plane"></i> contact</h2>
           <p>Let's build something great.</p>
-          <a href="mailto:alex@example.dev" class="contact-email">alex@example.dev</a>
+          <a href="mailto:costas.lekkos@gmail.com" class="contact-email">costas.lekkos@gmail.com</a>
           <div class="contact-socials">
             <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
           </div>
         </div>
       </section>
@@ -132,13 +130,15 @@
 
     <!-- footer -->
     <footer class="site-footer">
-      <p>© 2025 Alex Rivera — built with vanilla JS & ☕</p>
+      <p>© <span id="year"></span> Constantine Lekkos — built with vanilla JS, HTML, CSS & ☕</p>
       <p class="footer-small">modern. minimal. fast.</p>
     </footer>
   </div>
   <!-- tiny script for theme toggle -->
   <script>
     (function() {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
       const html = document.documentElement;
       const toggle = document.getElementById('themeToggle');
       const icon = toggle.querySelector('i');
