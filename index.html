@@ -1,1 +1,170 @@
-<h1>Hello there!</h1>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Rivera · software engineer</title>
+  <!-- modern Google fonts + fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <!-- style.css -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="page-grid">
+    <!-- subtle background pattern / gradient -->
+    <div class="bg-glow"></div>
+
+    <!-- header / nav -->
+    <header class="site-header glass-card">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-mark"><i class="fas fa-terminal"></i></span>
+          <span class="logo-text">alex<span class="accent">.dev</span></span>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <!-- dark/light toggle -->
+          <button id="themeToggle" class="theme-toggle" aria-label="Switch theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <!-- github / linkedin icons -->
+          <a href="#" class="icon-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" class="icon-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- main content -->
+    <main>
+      <!-- hero section -->
+      <section class="hero">
+        <div class="hero-content glass-card">
+          <p class="hero-greeting">👋 full-stack · systems · design</p>
+          <h1 class="hero-title">Building fast,<br>beautiful, <span class="gradient-text">reliable</span> software.</h1>
+          <p class="hero-desc">I'm Alex — software engineer with 8+ years of experience. I turn complex requirements into crisp, performant products.</p>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">See my work <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="btn btn-outline">Let's talk</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-number">30+</span> projects shipped</div>
+            <div class="stat"><span class="stat-number">8</span> years exp</div>
+            <div class="stat"><span class="stat-number">∞</span> curiosity</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- work / projects -->
+      <section id="work" class="section">
+        <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-code"></i> selected work</h2>
+          <p class="section-sub">A few things I've built or contributed to.</p>
+        </div>
+        <div class="projects-grid">
+          <!-- card 1 -->
+          <article class="project-card glass-card">
+            <div class="project-icon"><i class="fas fa-cloud"></i></div>
+            <h3>Atlas Cloud</h3>
+            <p class="project-description">Scalable infrastructure dashboard – real-time metrics, serverless deployments, built with React & Go.</p>
+            <div class="project-tags">
+              <span>React</span><span>Go</span><span>WebSockets</span>
+            </div>
+            <a href="#" class="project-link">case study <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </article>
+
+          <!-- card 2 -->
+          <article class="project-card glass-card">
+            <div class="project-icon"><i class="fas fa-brain"></i></div>
+            <h3>NeuroLens</h3>
+            <p class="project-description">AI-powered analytics for product teams. Natural language queries & auto-generated insights.</p>
+            <div class="project-tags">
+              <span>Python</span><span>FastAPI</span><span>OpenAI</span>
+            </div>
+            <a href="#" class="project-link">case study <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </article>
+
+          <!-- card 3 -->
+          <article class="project-card glass-card">
+            <div class="project-icon"><i class="fas fa-cubes"></i></div>
+            <h3>Quantum UI</h3>
+            <p class="project-description">Open-source component library with 40+ accessible, themeable components. 5k+ GitHub stars.</p>
+            <div class="project-tags">
+              <span>TypeScript</span><span>CSS</span><span>Vite</span>
+            </div>
+            <a href="#" class="project-link">case study <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </article>
+        </div>
+      </section>
+
+      <!-- about + contact (compact) -->
+      <section id="about" class="section split-section">
+        <div class="about-card glass-card">
+          <h2 class="section-title"><i class="fas fa-user-astronaut"></i> about</h2>
+          <p>I’m a product-minded engineer who loves clean abstractions, delightful UX, and solid engineering. Currently focused on developer tools and real‑time systems.</p>
+          <p>Outside code: mechanical keyboards, coffee, and long-distance cycling.</p>
+          <div class="skill-pills">
+            <span>TypeScript</span><span>React</span><span>Node.js</span><span>Go</span><span>Rust</span><span>GraphQL</span>
+          </div>
+        </div>
+        <div id="contact" class="contact-card glass-card">
+          <h2 class="section-title"><i class="fas fa-paper-plane"></i> contact</h2>
+          <p>Let's build something great.</p>
+          <a href="mailto:alex@example.dev" class="contact-email">alex@example.dev</a>
+          <div class="contact-socials">
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <p>© 2025 Alex Rivera — built with vanilla JS & ☕</p>
+      <p class="footer-small">modern. minimal. fast.</p>
+    </footer>
+  </div>
+  <!-- tiny script for theme toggle -->
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const icon = toggle.querySelector('i');
+
+      // set initial theme from localStorage or default dark
+      const stored = localStorage.getItem('theme');
+      if (stored) {
+        html.setAttribute('data-theme', stored);
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+
+      function updateIcon() {
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+      }
+      updateIcon();
+
+      toggle.addEventListener('click', () => {
+        const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon();
+      });
+    })();
+  </script>
+</body>
+</html>
