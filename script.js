@@ -50,19 +50,6 @@
 })();
 
 /* ============================================================
-   CONTACT FORM (demo only)
-   ============================================================ */
-(function () {
-  const form = document.getElementById("contactForm");
-  if (!form) return;
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Demo: message sent! (This is a static demo)");
-    form.reset();
-  });
-})();
-
-/* ============================================================
    FOOTER YEAR
    ============================================================ */
 (function () {
