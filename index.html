@@ -1,245 +1,354 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Constantine Lekkos - Software Engineer. Full-stack developer building scalable web apps and thoughtful user experiences." />
-  <title>Constantine Lekkos · Software Engineer</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Constantine Lekkos - Software Engineer. Full-stack developer building scalable web apps and thoughtful user experiences."
+    />
+    <title>Constantine Lekkos · Software Engineer</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
-    <nav class="navbar">
-      <div class="navbar-brand">
-        <div class="logo">ecco<span>.dev</span></div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#science_blog">Science Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact" class="btn btn--small">Resume</a></li>
-        <li>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-            <i class="fas fa-sun"></i>
-          </button>
-        </li>
-      </ul>
-    </nav>
-
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <i class="fas fa-code" aria-hidden="true"></i> Available for work
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <div class="logo">ecco<span>.dev</span></div>
         </div>
-        <h1>Building digital <span class="highlight">products</span> that matter.</h1>
-        <p>
-          I'm Constantine Lekkos, Dipl. Biomedical Engineer, MEng, MPhil Candidate in Neural Networks and in Quantum Computing.
-        </p>
-        <p>I am a software engineer with 4+ years of experience crafting scalable web apps and thoughtful user experiences.</p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn">
-            View Projects <i class="fas fa-arrow-right" aria-hidden="true"></i>
-          </a>
-          <a href="#contact" class="btn btn-outline">Contact Me</a>
-        </div>
-        <div class="hero-social">
-          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-          <a href="#" aria-label="Dev.to"><i class="fab fa-dev"></i></a>
-        </div>
-      </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#science_blog">Science Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              aria-label="Toggle dark/light mode"
+            >
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
 
-      <div class="hero-visual">
-        <div class="code-window">
-          <div class="code-titlebar">
-            <span class="dot dot--red"></span>
-            <span class="dot dot--yellow"></span>
-            <span class="dot dot--green"></span>
-            <span class="filename">main.rs</span>
-            <span class="lang-badge">Rust</span>
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-code" aria-hidden="true"></i> Available for
+            creativity and innovation
           </div>
-          <div class="code-body" id="codeBody"></div>
+          <h1>
+            Building digital <span class="highlight">products</span> that
+            matter.
+          </h1>
+          <p>
+            I'm Constantine Lekkos, a software engineer with 4+ years of
+            experience crafting scalable web apps and thoughtful user
+            experiences.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn">
+              View Projects
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+          <div class="hero-social">
+            <a
+              href="https://github.com/leccode"
+              target="_blank"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/constantine-lekkos/"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="code-window">
+            <div class="code-titlebar">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="filename">main.rs</span>
+              <span class="lang-badge">Rust</span>
+            </div>
+            <div class="code-body" id="codeBody"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section id="profile" class="projects-section" style="padding-top: 0">
+      <div class="container">
+        <h2 class="section-title">Academic Profile</h2>
+        <p class="section-subtitle">
+          Dipl. Biomedical Engineer, MEng. MPhil Candidate in Neural Networks
+          and in Quantum Computing. My research interests lie in Deep Learning,
+          Quantum Computing, and Nanobiotechnology. Translating academic
+          knowledge into actual solutions via R&D.
+        </p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>MPhil in Computer Science and Informatics, HUA</h3>
+            <p>
+              Researching Physics Informed Neural Networks, Quantum Computing,
+              and Hardware approaches in Bioinformatics.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3>MSc in Microsystems and Nanodevices, NTUA</h3>
+            <p>
+              Currently paused (planning to resume in 2027). Willing to obtain
+              knowledge in Quantum Mechanics, Nanobiotechnology, and Quantum
+              Computing.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div class="container">
+        <h2 class="section-title">Professional Profile</h2>
+        <p class="section-subtitle">
+          Building reliable backend and full-stack production systems across
+          fintech, healthcare, and logistics. Strong background in designing
+          clean RESTful APIs and web applications using architectures that
+          handle real-world scale. Known for high velocity.
+        </p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <i class="fas fa-university"></i>
+            </div>
+            <h3>Banking and Investment Systems</h3>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <i class="fas fa-hospital"></i>
+            </div>
+            <h3>Healthcare Systems</h3>
+          </article>
         </div>
       </div>
     </section>
-  </div>
-  
-  <section id="profile" class="profile-section">
-    <div class="container">
-      <h2 class="section-title">Masters In Progress</h2>
-      <p class="section-subtitle">
-        My research interests lie in Deep Learning, Quantum Computing, and Nanobiotechnology.
-      </p>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-brain"></i></div>
-          <h3>MPhil in Computer Science and Informatics, HUA</h3>
-          <p>Researching Physics Informed Neural Networks, Quantum Computing, and Hardware approaches in Bioinformatics.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-microscope"></i></div>
-          <h3>MSc in Microsystems and Nanodevices, NTUA</h3>
-          <p>Currently paused (planning to resume in 2027). Willing to obtain knowledge in Quantum Mechanics, Nanobiotechnology, and Quantum Computing.</p>
+
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <h2 class="section-title">What I do best</h2>
+        <p class="section-subtitle">
+          Full-stack engineering with a focus on clean architecture,
+          performance, and user-centric design.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Frontend Development</h3>
+            <p>
+              Next.js, React, TypeScript, Blazor, and modern CSS. Building
+              responsive, accessible interfaces with pixel-perfect
+              implementation.
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
+            <h3>Backend &amp; APIs</h3>
+            <p>
+              .NET/C#, Node.js, Python, REST, Rust, SQL Server, and PostgreSQL.
+              Designing scalable web apps, APIs, and robust data layers.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills" class="skills-section">
-    <div class="container">
-      <h2 class="section-title">What I do best</h2>
-      <p class="section-subtitle">
-        Full-stack engineering with a focus on clean architecture, performance,
-        and user-centric design.
-      </p>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
-          <h3>Frontend Development</h3>
-          <p>React, Vue, TypeScript, and modern CSS. Building responsive, accessible interfaces with pixel-perfect implementation.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-server"></i></div>
-          <h3>Backend &amp; APIs</h3>
-          <p>Node.js, Python, REST, Rust, and PostgreSQL. Designing scalable microservices and robust data layers.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-          <h3>Cloud &amp; DevOps</h3>
-          <p>AWS, Docker, CI/CD pipelines, and infrastructure as code. Deploying reliable systems with observability.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
-          <h3>Mobile &amp; Cross-platform</h3>
-          <p>React Native and PWA. Delivering native-like experiences on iOS and Android with a single codebase.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <h2 class="section-title">Featured projects</h2>
+        <p class="section-subtitle">
+          A selection of work that showcases my approach to software
+          engineering.
+        </p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <i class="fas fa-dna"></i>
+              <span class="tech-badge">Featured</span>
+            </div>
+            <h3>DNA/RNA Knowledgebase</h3>
+            <p>
+              Dashboard for sequences management and storing. Built with C#, SQL
+              Server, and Vue.js.
+            </p>
+            <div class="project-tags">
+              <span>.NET</span><span>C#</span><span>SQL Server</span
+              ><span>Vue.js</span>
+            </div>
+            <a
+              href="https://github.com/leccode/nucleic-acids-api"
+              target="_blank"
+              class="project-link"
+              >GitHub Backend <i class="fas fa-arrow-right"></i
+            ></a>
+            <a
+              href="https://github.com/leccode/nucleic-acids-ui"
+              target="_blank"
+              class="project-link"
+              >GitHub Frontend <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
 
-  <section id="projects" class="projects-section">
-    <div class="container">
-      <h2 class="section-title">Featured projects</h2>
-      <p class="section-subtitle">
-        A selection of work that showcases my approach to software engineering.
-      </p>
-      <div class="projects-grid">
-        <article class="project-card">
-          <div class="project-header">
-            <i class="fas fa-chart-line"></i>
-            <span class="tech-badge">Featured</span>
-          </div>
-          <h3>Insight Analytics</h3>
-          <p>Real-time dashboard for product teams. Built with React, D3.js, and a Node/GraphQL backend processing 2M+ events daily.</p>
-          <div class="project-tags">
-            <span>React</span><span>GraphQL</span><span>D3</span><span>PostgreSQL</span>
-          </div>
-          <a href="#" class="project-link">Live demo <i class="fas fa-arrow-right"></i></a>
-        </article>
+          <article class="project-card">
+            <div class="project-header">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>GitHub Dashboard</h3>
+            <p>A dashboard that uses GitHub public API to fetch data.</p>
+            <div class="project-tags">
+              <span>React</span><span>Vite</span><span>shadcn</span
+              ><span>Tailwind</span>
+            </div>
+            <a
+              href="https://github.com/leccode/github-dashboard"
+              target="_blank"
+              class="project-link"
+              >GitHub <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
 
-        <article class="project-card">
-          <div class="project-header"><i class="fas fa-shopping-cart"></i></div>
-          <h3>ShopStream</h3>
-          <p>Headless e-commerce platform with Stripe integration, inventory sync, and a custom CMS. Handles 10k+ orders/month.</p>
-          <div class="project-tags">
-            <span>Next.js</span><span>Stripe</span><span>MongoDB</span><span>Tailwind</span>
-          </div>
-          <a href="#" class="project-link">Case study <i class="fas fa-arrow-right"></i></a>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header"><i class="fas fa-robot"></i></div>
-          <h3>TaskPilot AI</h3>
-          <p>AI-powered project management assistant. Python backend with OpenAI, React frontend, and real-time collaboration via WebSockets.</p>
-          <div class="project-tags">
-            <span>Python</span><span>FastAPI</span><span>OpenAI</span><span>WebSockets</span>
-          </div>
-          <a href="#" class="project-link">GitHub <i class="fas fa-arrow-right"></i></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="science_blog" class="projects-section" style="padding-top: 0;">
-    <div class="container">
-      <h2 class="section-title">Scientific Articles</h2>
-      <p class="section-subtitle">
-        A selection of interests that showcases my approach to software engineering and science.
-      </p>
-      <div class="projects-grid">
-        <article class="project-card">
-          <div class="project-header">
-            <i class="fas fa-network-wired"></i>
-            <span class="tech-badge">Featured</span>
-          </div>
-          <h3>Deep Learning - Neural Networks</h3>
-          <p>Physics Informed Neural Networks explanation and hands-on example soon.</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <i class="fas fa-atom"></i>
-            <span class="tech-badge" style="background: var(--bg-elevated); color: var(--text-secondary);">Soon</span>
-          </div>
-          <h3>Quantum Computing</h3>
-          <p>Foundation and limitations. Is all about hype?</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <div class="contact-wrapper">
-        <div class="contact-text">
-          <h2>Let's build something great.</h2>
-          <p>
-            I'm currently open to freelance projects and full-time opportunities.
-            Drop me a message and I'll get back to you within 24 hours.
-          </p>
-          <div class="contact-email">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            <span>costas.lekkos@gmail.com</span>
-          </div>
-        </div>
-        <div class="contact-action">
-          <a href="mailto:costas.lekkos@gmail.com?subject=Project%20Inquiry" class="btn">
-            Email Me Directly <i class="fas fa-paper-plane" aria-hidden="true"></i>
-          </a>
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-header"><i class="fas fa-robot"></i></div>
+              <span class="tech-badge">Soon</span>
+            </div>
+            <h3>Gamified Learning Platform</h3>
+            <p>A platform for developers to learn new tech-stack.</p>
+            <div class="project-tags">
+              <span>Next.js</span><span>Prisma/PostgreSQL</span
+              ><span>shadcn</span><span>Drizzle</span>
+            </div>
+            <a href="#" class="project-link"
+              >GitHub <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="footer container">
-    <div>© <span id="year"></span> Constantine Lekkos - Software Engineer</div>
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#profile">Profile</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#science_blog">Science Blog</a>
-      <a href="#contact">Contact</a>
-      <a href="#">Privacy</a>
-    </div>
-  </footer>
+    <section id="science_blog" class="projects-section" style="padding-top: 0">
+      <div class="container">
+        <h2 class="section-title">Scientific Articles</h2>
+        <p class="section-subtitle">
+          A selection of interests that showcases my approach to software
+          engineering and science.
+        </p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <i class="fas fa-network-wired"></i>
+              <span class="tech-badge">Featured</span>
+            </div>
+            <h3>Deep Learning - Neural Networks</h3>
+            <p>
+              Physics Informed Neural Networks explanation and hands-on example
+              soon.
+            </p>
+          </article>
 
-  <script src="script.js" defer></script>
-</body>
+          <article class="project-card">
+            <div class="project-header">
+              <i class="fas fa-atom"></i>
+              <span
+                class="tech-badge"
+                style="
+                  background: var(--bg-elevated);
+                  color: var(--text-secondary);
+                "
+                >Soon</span
+              >
+            </div>
+            <h3>Quantum Computing</h3>
+            <p>Foundation and limitations. Is all about hype?</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-text">
+            <h2>Let's build something great.</h2>
+            <p>
+              I'm currently open to freelance projects and full-time
+              opportunities. Drop me a message and I'll get back to you within
+              24 hours.
+            </p>
+            <div class="contact-email">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span>costas.lekkos@gmail.com</span>
+            </div>
+          </div>
+          <div class="contact-action">
+            <a
+              href="mailto:costas.lekkos@gmail.com?subject=Project%20Inquiry"
+              class="btn"
+            >
+              Email Me Directly
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer container">
+      <div>
+        © <span id="year"></span> Constantine Lekkos - Software Engineer. All
+        Rights Reserved.
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#science_blog">Science Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
 </html>
