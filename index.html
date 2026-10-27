@@ -22,8 +22,10 @@
 <body>
   <div class="container">
     <nav class="navbar">
-      <div class="logo">ecco<span>.dev</span></div>
-      <p>Dipl. Biomedical Engineer, MEng, MPhil Candidate in Neural Networks and in Quantum Computing.</p>
+      <div class="navbar-brand">
+        <div class="logo">ecco<span>.dev</span></div>
+        <p class="navbar-subtitle">Dipl. Biomedical Engineer, MEng, MPhil Candidate in Neural Networks and in Quantum Computing.</p>
+      </div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#profile">Profile</a></li>
@@ -51,8 +53,8 @@
           scalable web apps and thoughtful user experiences.
         </p>
         <div class="hero-actions">
-          <a href="#" class="btn">
-            View  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          <a href="#projects" class="btn">
+            View Projects <i class="fas fa-arrow-right" aria-hidden="true"></i>
           </a>
           <a href="#contact" class="btn btn-outline">Contact Me</a>
         </div>
@@ -79,22 +81,22 @@
     </section>
   </div>
   
-  <section id="profile" class="skills-section">
+  <section id="profile" class="profile-section">
     <div class="container">
       <h2 class="section-title">Masters In Progress</h2>
       <p class="section-subtitle">
-        My research interests lies in Deep Learning, Quantum Computing and in Nanobiotechnology.
+        My research interests lie in Deep Learning, Quantum Computing, and Nanobiotechnology.
       </p>
       <div class="skills-grid">
         <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
           <h3>MPhil in Computer Science and Informatics, HUA</h3>
           <p>Researching Physics Informed Neural Networks, Quantum Computing, and Hardware approaches in Bioinformatics.</p>
         </div>
         <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-server"></i></div>
+          <div class="skill-icon"><i class="fas fa-microscope"></i></div>
           <h3>MSc in Microsystems and Nanodevices, NTUA</h3>
-          <p>Currently paused and I plant to start it in 2027. Willing to obtain knowledge in Quantum Mechanics, in Nanobiotechnology, and in Quantum Computing.</p>
+          <p>Currently paused (planning to resume in 2027). Willing to obtain knowledge in Quantum Mechanics, Nanobiotechnology, and Quantum Computing.</p>
         </div>
       </div>
     </div>
@@ -175,16 +177,16 @@
     </div>
   </section>
 
-  <section id="science_blog" class="projects-section">
+  <section id="science_blog" class="projects-section" style="padding-top: 0;">
     <div class="container">
       <h2 class="section-title">Scientific Articles</h2>
       <p class="section-subtitle">
-        A selection of interests that showcases my approach to software engineering and in science.
+        A selection of interests that showcases my approach to software engineering and science.
       </p>
       <div class="projects-grid">
         <article class="project-card">
           <div class="project-header">
-            <i class="fas fa-chart-line"></i>
+            <i class="fas fa-network-wired"></i>
             <span class="tech-badge">Featured</span>
           </div>
           <h3>Deep Learning - Neural Networks</h3>
@@ -193,8 +195,8 @@
 
         <article class="project-card">
           <div class="project-header">
-            <i class="fas fa-chart-line"></i>
-            <span class="tech-badge">Soon</span>
+            <i class="fas fa-atom"></i>
+            <span class="tech-badge" style="background: var(--bg-elevated); color: var(--text-secondary);">Soon</span>
           </div>
           <h3>Quantum Computing</h3>
           <p>Foundation and limitations. Is all about hype?</p>
@@ -217,7 +219,6 @@
             <span>costas.lekkos@gmail.com</span>
           </div>
         </div>
-        <!-- Replaced the form with a direct email button -->
         <div class="contact-action">
           <a href="mailto:costas.lekkos@gmail.com?subject=Project%20Inquiry" class="btn">
             Email Me Directly <i class="fas fa-paper-plane" aria-hidden="true"></i>
