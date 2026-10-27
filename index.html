@@ -11,6 +11,7 @@
   <style>
     /* ---------- THEME VARIABLES ---------- */
     :root {
+      /* LIGHT THEME (default) */
       --bg-body: #f9fafc;
       --bg-surface: #ffffff;
       --bg-elevated: #f0f2f6;
@@ -31,7 +32,7 @@
       --avatar-gradient: linear-gradient(135deg, #2d7aed, #6aa4ff);
       --navbar-border: transparent;
 
-      /* code editor theme - light */
+      /* Code editor (stays dark in both themes for consistency) */
       --code-bg: #1e1e2f;
       --code-text: #d4d4d4;
       --code-keyword: #c586c0;
@@ -42,7 +43,6 @@
       --code-type: #4ec9b0;
       --code-variable: #9cdcfe;
       --code-operator: #d4d4d4;
-      --code-line-hl: rgba(255,255,255,0.03);
     }
 
     [data-theme="dark"] {
@@ -66,7 +66,6 @@
       --avatar-gradient: linear-gradient(135deg, #4d8eff, #8bb8ff);
       --navbar-border: #1e2632;
 
-      /* code editor theme - dark (always dark for consistency) */
       --code-bg: #0f1219;
       --code-text: #e2e8f0;
       --code-keyword: #ff7edb;
@@ -77,7 +76,6 @@
       --code-type: #4ec9b0;
       --code-variable: #82aaff;
       --code-operator: #89ddff;
-      --code-line-hl: rgba(255,255,255,0.03);
     }
 
     /* ---------- BASE ---------- */
@@ -97,7 +95,7 @@
       background: var(--bg-body);
       color: var(--text-primary);
       line-height: 1.5;
-      transition: background 0.3s ease, color 0.2s ease;
+      transition: background 0.35s ease, color 0.2s ease;
     }
 
     .container {
@@ -270,7 +268,7 @@
       transform: translateY(-2px);
     }
 
-    /* ---------- CODE ANIMATION (terminal card) ---------- */
+    /* ---------- CODE WINDOW ---------- */
     .hero-visual {
       flex: 1 1 380px;
       display: flex;
@@ -306,11 +304,7 @@
       user-select: none;
     }
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
     .dot.red { background: #ff5f56; }
     .dot.yellow { background: #ffbd2e; }
     .dot.green { background: #27c93f; }
@@ -342,6 +336,7 @@
       line-height: 1.65;
       white-space: pre;
       tab-size: 2;
+      min-height: 200px;
     }
 
     .line {
@@ -368,7 +363,6 @@
       position: relative;
     }
 
-    /* syntax colors */
     .kw { color: var(--code-keyword); }
     .fn { color: var(--code-fn); }
     .str { color: var(--code-string); }
@@ -379,10 +373,7 @@
     .op { color: var(--code-operator); }
     .pun { color: #d4d4d4; }
     .attr { color: #9cdcfe; }
-    .self { color: #ff7edb; }
-    .macro { color: #ff7edb; }
 
-    /* typing cursor */
     .cursor {
       display: inline-block;
       width: 8px;
@@ -398,16 +389,6 @@
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
-    }
-
-    /* typing line fade-in */
-    .typing-line {
-      opacity: 0;
-      animation: fadeIn 0.25s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
     }
 
     /* ---------- SECTION TITLES ---------- */
@@ -580,9 +561,7 @@
       justify-content: space-between;
     }
 
-    .contact-text {
-      flex: 1 1 300px;
-    }
+    .contact-text { flex: 1 1 300px; }
 
     .contact-text h2 {
       font-size: 2.4rem;
@@ -635,9 +614,7 @@
       resize: vertical;
     }
 
-    .contact-form button {
-      align-self: flex-start;
-    }
+    .contact-form button { align-self: flex-start; }
 
     /* ---------- FOOTER ---------- */
     .footer {
@@ -653,10 +630,7 @@
       transition: border-color 0.3s;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 28px;
-    }
+    .footer-links { display: flex; gap: 28px; }
 
     .footer-links a {
       text-decoration: none;
@@ -664,66 +638,30 @@
       transition: color 0.2s;
     }
 
-    .footer-links a:hover {
-      color: var(--accent);
-    }
+    .footer-links a:hover { color: var(--accent); }
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      .hero {
-        padding: 40px 0 60px;
-      }
-      .navbar {
-        flex-direction: column;
-        gap: 16px;
-      }
-      .nav-links {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .section-title {
-        font-size: 1.8rem;
-      }
-      .footer {
-        flex-direction: column;
-        text-align: center;
-      }
-      .footer-links {
-        justify-content: center;
-      }
-      .code-body {
-        font-size: 0.75rem;
-      }
-      .line-num {
-        width: 1.8em;
-        font-size: 0.7rem;
-      }
+      .hero h1 { font-size: 2.5rem; }
+      .hero { padding: 40px 0 60px; }
+      .navbar { flex-direction: column; gap: 16px; }
+      .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+      .section-title { font-size: 1.8rem; }
+      .footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+      .code-body { font-size: 0.75rem; }
+      .line-num { width: 1.8em; font-size: 0.7rem; }
     }
 
     @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .btn {
-        text-align: center;
-      }
-      .code-titlebar .filename {
-        font-size: 0.7rem;
-      }
+      .hero h1 { font-size: 2rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { text-align: center; }
+      .code-titlebar .filename { font-size: 0.7rem; }
     }
 
-    /* reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .cursor { animation: none; opacity: 1; }
-      .typing-line { animation: none; opacity: 1; }
       .code-window:hover { transform: none; }
     }
   </style>
@@ -741,7 +679,7 @@
         <li><a href="#contact" class="btn" style="padding: 8px 20px;">Resume</a></li>
         <li>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
           </button>
         </li>
       </ul>
@@ -764,7 +702,6 @@
         </div>
       </div>
 
-      <!-- CODING ANIMATION WINDOW -->
       <div class="hero-visual">
         <div class="code-window" id="codeWindow">
           <div class="code-titlebar">
@@ -774,9 +711,7 @@
             <span class="filename">main.rs</span>
             <span class="lang-badge">Rust</span>
           </div>
-          <div class="code-body" id="codeBody">
-            <!-- lines are injected by JS for the typing effect -->
-          </div>
+          <div class="code-body" id="codeBody"></div>
         </div>
       </div>
     </section>
@@ -824,38 +759,25 @@
           <h3>Insight Analytics</h3>
           <p>Real-time dashboard for product teams. Built with React, D3.js, and a Node/GraphQL backend processing 2M+ events daily.</p>
           <div class="project-tags">
-            <span>React</span>
-            <span>GraphQL</span>
-            <span>D3</span>
-            <span>PostgreSQL</span>
+            <span>React</span><span>GraphQL</span><span>D3</span><span>PostgreSQL</span>
           </div>
           <a href="#" class="project-link">Live demo <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="project-card">
-          <div class="project-header">
-            <i class="fas fa-shopping-cart"></i>
-          </div>
+          <div class="project-header"><i class="fas fa-shopping-cart"></i></div>
           <h3>ShopStream</h3>
           <p>Headless e-commerce platform with Stripe integration, inventory sync, and a custom CMS. Handles 10k+ orders/month.</p>
           <div class="project-tags">
-            <span>Next.js</span>
-            <span>Stripe</span>
-            <span>MongoDB</span>
-            <span>Tailwind</span>
+            <span>Next.js</span><span>Stripe</span><span>MongoDB</span><span>Tailwind</span>
           </div>
           <a href="#" class="project-link">Case study <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="project-card">
-          <div class="project-header">
-            <i class="fas fa-robot"></i>
-          </div>
+          <div class="project-header"><i class="fas fa-robot"></i></div>
           <h3>TaskPilot AI</h3>
           <p>AI-powered project management assistant. Python backend with OpenAI, React frontend, and real-time collaboration via WebSockets.</p>
           <div class="project-tags">
-            <span>Python</span>
-            <span>FastAPI</span>
-            <span>OpenAI</span>
-            <span>WebSockets</span>
+            <span>Python</span><span>FastAPI</span><span>OpenAI</span><span>WebSockets</span>
           </div>
           <a href="#" class="project-link">GitHub <i class="fas fa-arrow-right"></i></a>
         </div>
@@ -901,34 +823,27 @@
       const toggle = document.getElementById('themeToggle');
       const icon = toggle.querySelector('i');
 
-      function setTheme(theme) {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        updateIcon(theme);
-      }
-
       function updateIcon(theme) {
-        if (theme === 'dark') {
-          icon.className = 'fas fa-sun';
-        } else {
-          icon.className = 'fas fa-moon';
-        }
+        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
       }
 
+      // Sync icon with initial theme
+      const initialTheme = html.getAttribute('data-theme') || 'dark';
+      updateIcon(initialTheme);
+
+      // Restore saved preference
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light' || savedTheme === 'dark') {
         html.setAttribute('data-theme', savedTheme);
         updateIcon(savedTheme);
-      } else {
-        html.setAttribute('data-theme', 'dark');
-        updateIcon('dark');
-        localStorage.setItem('theme', 'dark');
       }
 
       toggle.addEventListener('click', () => {
         const current = html.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
-        setTheme(next);
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateIcon(next);
       });
     })();
 
@@ -947,11 +862,10 @@
 
     /* ---------- CODING TYPING ANIMATION (RUST) ---------- */
     (function() {
-      const body = document.getElementById('codeBody');
+      const codeBody = document.getElementById('codeBody');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // Each line is a list of tokens: [cssClass, text]
-      // Classes map to our syntax highlighting spans
+      // Each line = { indent, tokens: [[cssClass, text], ...] }
       const codeLines = [
         { indent: 0, tokens: [['cmt', '// async worker in Rust 🦀']] },
         { indent: 0, tokens: [['kw', 'use'], ['pun', ' '], ['var', 'tokio'], ['pun', '::'], ['pun', '{ '], ['var', 'sync'], ['pun', ', '], ['var', 'time'], ['pun', ' };']] },
@@ -982,31 +896,26 @@
         { indent: 0, tokens: [['pun', '}']] },
       ];
 
-      // Build the DOM lines initially (hidden), then reveal with typing effect
+      // Build the full DOM once
+      const fragment = document.createDocumentFragment();
       const lineElements = [];
-      const cursorEl = document.createElement('span');
-      cursorEl.className = 'cursor';
 
-      // Utility to create a line element from tokens
-      function createLineElement(tokens, indent) {
+      codeLines.forEach((line, idx) => {
         const lineDiv = document.createElement('div');
-        lineDiv.className = 'line typing-line';
+        lineDiv.className = 'line';
 
         const numDiv = document.createElement('span');
         numDiv.className = 'line-num';
-        numDiv.textContent = ''; // will fill later
+        numDiv.textContent = (idx + 1).toString();
 
         const contentDiv = document.createElement('span');
         contentDiv.className = 'line-content';
 
-        // Add indentation spaces
-        if (indent > 0) {
-          const spaces = document.createTextNode('  '.repeat(indent));
-          contentDiv.appendChild(spaces);
+        if (line.indent > 0) {
+          contentDiv.appendChild(document.createTextNode('  '.repeat(line.indent)));
         }
 
-        // Append token spans
-        tokens.forEach(([cls, text]) => {
+        line.tokens.forEach(([cls, text]) => {
           const span = document.createElement('span');
           span.className = cls;
           span.textContent = text;
@@ -1015,108 +924,44 @@
 
         lineDiv.appendChild(numDiv);
         lineDiv.appendChild(contentDiv);
-        return { lineDiv, numDiv, contentDiv, tokens };
-      }
-
-      // Prepare all line elements but keep them hidden
-      const preparedLines = codeLines.map((line, idx) => {
-        const { lineDiv, numDiv, contentDiv } = createLineElement(line.tokens, line.indent);
-        numDiv.textContent = (idx + 1).toString();
-        return { lineDiv, numDiv, contentDiv, tokens: line.tokens };
+        fragment.appendChild(lineDiv);
+        lineElements.push({ lineDiv, contentDiv });
       });
 
-      // Clear body and append all lines
-      body.innerHTML = '';
-      preparedLines.forEach(pl => {
-        body.appendChild(pl.lineDiv);
-      });
+      codeBody.appendChild(fragment);
 
-      // Add the cursor at the end of the last line initially (hidden until animation starts)
-      // We'll manage the cursor during typing
-
+      // If reduced motion: just show everything, add cursor at end
       if (reducedMotion) {
-        // Just show everything immediately
-        preparedLines.forEach(pl => {
-          pl.lineDiv.classList.remove('typing-line');
-          pl.lineDiv.style.opacity = '1';
-        });
-        // Append cursor to last line content
-        const last = preparedLines[preparedLines.length - 1];
-        if (last) last.contentDiv.appendChild(cursorEl);
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        lineElements[lineElements.length - 1].contentDiv.appendChild(cursor);
         return;
       }
 
-      // --- Typing simulation ---
-      // We'll reveal lines one by one, and within each line, reveal characters progressively.
+      // Otherwise: hide all lines first, then reveal line-by-line
+      lineElements.forEach(le => { le.lineDiv.style.opacity = '0'; });
 
-      let currentLineIndex = 0;
-      let currentCharIndex = 0;
-      const totalLines = preparedLines.length;
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
 
-      // We'll hide all initially (already have typing-line class with opacity 0)
-      // We need to track the original tokens' text to re-append progressively? 
-      // Simpler approach: for each line, build the full HTML, but set opacity 0.
-      // Then we can simply set the line's opacity to 1 and add a cursor that "types" by moving.
-      // However, a true character-by-character typing would require splitting tokens.
-      // For performance and simplicity, we'll do a "line-by-line" reveal with a brief delay,
-      // but with a cursor that appears to be typing at the end of each line.
-      // To simulate typing within a line, we can temporarily replace the content with empty,
-      // then add characters back one by one. But that's complex.
-      // Alternative: keep lines hidden, reveal each line fully (with a fade-in) and move cursor to next line.
-      // That's clean and still looks great. We'll also add a slight delay per line.
+      function revealNext(index) {
+        if (index >= lineElements.length) return;
 
-      // But we want a typing effect within lines too. Let's do a hybrid:
-      // For each line, we build the full DOM, but we set its content to empty (just indent),
-      // then gradually append text nodes from tokens. But that breaks token styling.
-      // For simplicity and visual appeal, we'll stick to line-by-line fade-in with cursor moving.
+        // Remove cursor from previous line
+        if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
 
-      // Let's implement a smooth line-by-line reveal with a moving cursor.
+        // Reveal current line
+        const le = lineElements[index];
+        le.lineDiv.style.transition = 'opacity 0.15s ease';
+        le.lineDiv.style.opacity = '1';
 
-      // Remove any existing cursor
-      if (cursorEl.parentNode) cursorEl.parentNode.removeChild(cursorEl);
+        // Add cursor to this line
+        le.contentDiv.appendChild(cursor);
 
-      // Show first line immediately with cursor
-      function revealLine(index) {
-        if (index >= totalLines) {
-          // Animation complete: add cursor to last line
-          const last = preparedLines[totalLines - 1];
-          if (last) {
-            // Remove cursor from any previous location
-            if (cursorEl.parentNode) cursorEl.parentNode.removeChild(cursorEl);
-            last.contentDiv.appendChild(cursorEl);
-          }
-          return;
-        }
-
-        const pl = preparedLines[index];
-        // Reveal the line
-        pl.lineDiv.classList.remove('typing-line');
-        pl.lineDiv.style.opacity = '1';
-
-        // Remove cursor from previous location
-        if (cursorEl.parentNode) {
-          cursorEl.parentNode.removeChild(cursorEl);
-        }
-
-        // Append cursor to current line (end)
-        pl.contentDiv.appendChild(cursorEl);
-
-        // Schedule next line
-        setTimeout(() => {
-          revealLine(index + 1);
-        }, 180 + Math.random() * 120); // vary speed slightly
+        setTimeout(() => revealNext(index + 1), 160 + Math.random() * 100);
       }
 
-      // Start after a short delay
-      setTimeout(() => {
-        // First, remove the initial hidden state of first line, then start
-        revealLine(0);
-      }, 400);
-
-      // To make it look like typing, we can also animate the cursor position? 
-      // It's fine.
-
-      // Optional: restart animation every 30 seconds? Not necessary.
+      setTimeout(() => revealNext(0), 350);
     })();
   </script>
 </body>
