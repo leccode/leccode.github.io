@@ -1,27 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alex Rivera · Software Engineer</title>
-  <!-- Google Fonts & Font Awesome for modern icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* ---------- THEME VARIABLES ---------- */
+    :root {
+      --bg-body: #f9fafc;
+      --bg-surface: #ffffff;
+      --bg-elevated: #f0f2f6;
+      --bg-card: #ffffff;
+      --bg-input: #f9fafc;
+      --bg-badge: #e9efff;
+      --bg-tag: #f0f4fe;
+      --text-primary: #0a0c10;
+      --text-secondary: #5b5b70;
+      --text-muted: #4a4a5e;
+      --border-light: #eef1f8;
+      --border-medium: #e2e6ef;
+      --accent: #2d7aed;
+      --accent-hover: #1b5fc9;
+      --accent-soft: #e9efff;
+      --shadow-card: 0 6px 18px rgba(0,0,0,0.02);
+      --shadow-hover: 0 16px 28px -10px rgba(45,122,237,0.12);
+      --avatar-gradient: linear-gradient(135deg, #2d7aed, #6aa4ff);
+      --navbar-border: transparent;
+
+      /* code editor theme - light */
+      --code-bg: #1e1e2f;
+      --code-text: #d4d4d4;
+      --code-keyword: #c586c0;
+      --code-fn: #dcdcaa;
+      --code-string: #ce9178;
+      --code-comment: #6a9955;
+      --code-number: #b5cea8;
+      --code-type: #4ec9b0;
+      --code-variable: #9cdcfe;
+      --code-operator: #d4d4d4;
+      --code-line-hl: rgba(255,255,255,0.03);
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0d12;
+      --bg-surface: #12151c;
+      --bg-elevated: #1a1f2a;
+      --bg-card: #161b24;
+      --bg-input: #1a1f2a;
+      --bg-badge: #1e2a42;
+      --bg-tag: #1a263b;
+      --text-primary: #f0f2f8;
+      --text-secondary: #a0a8b8;
+      --text-muted: #8b95a8;
+      --border-light: #1e2632;
+      --border-medium: #2a3344;
+      --accent: #4d8eff;
+      --accent-hover: #6ba1ff;
+      --accent-soft: #1a2a4a;
+      --shadow-card: 0 6px 18px rgba(0,0,0,0.4);
+      --shadow-hover: 0 16px 28px -10px rgba(77,142,255,0.2);
+      --avatar-gradient: linear-gradient(135deg, #4d8eff, #8bb8ff);
+      --navbar-border: #1e2632;
+
+      /* code editor theme - dark (always dark for consistency) */
+      --code-bg: #0f1219;
+      --code-text: #e2e8f0;
+      --code-keyword: #ff7edb;
+      --code-fn: #fede5d;
+      --code-string: #a5e075;
+      --code-comment: #6b7a8f;
+      --code-number: #f78c6c;
+      --code-type: #4ec9b0;
+      --code-variable: #82aaff;
+      --code-operator: #89ddff;
+      --code-line-hl: rgba(255,255,255,0.03);
+    }
+
+    /* ---------- BASE ---------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark light;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f9fafc;
-      color: #1e1e2f;
+      background: var(--bg-body);
+      color: var(--text-primary);
       line-height: 1.5;
-      scroll-behavior: smooth;
+      transition: background 0.3s ease, color 0.2s ease;
     }
 
     .container {
@@ -30,24 +106,26 @@
       padding: 0 24px;
     }
 
-    /* header / nav */
+    /* ---------- NAVBAR ---------- */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 0;
       flex-wrap: wrap;
+      border-bottom: 1px solid var(--navbar-border);
+      transition: border-color 0.3s;
     }
 
     .logo {
       font-weight: 700;
       font-size: 1.8rem;
       letter-spacing: -0.02em;
-      color: #0a0c10;
+      color: var(--text-primary);
     }
 
     .logo span {
-      color: #2d7aed;
+      color: var(--accent);
     }
 
     .nav-links {
@@ -55,23 +133,47 @@
       gap: 32px;
       list-style: none;
       font-weight: 500;
+      align-items: center;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #2e2e3e;
+      color: var(--text-secondary);
       transition: color 0.2s;
       font-size: 1rem;
     }
 
     .nav-links a:hover {
-      color: #2d7aed;
+      color: var(--accent);
     }
 
-    /* buttons */
+    .theme-toggle {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-medium);
+      color: var(--text-primary);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.15rem;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+      margin-left: 8px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: rotate(15deg);
+    }
+
+    /* ---------- BUTTONS ---------- */
     .btn {
       display: inline-block;
-      background: #2d7aed;
+      background: var(--accent);
       color: white;
       padding: 10px 24px;
       border-radius: 40px;
@@ -84,21 +186,21 @@
     }
 
     .btn:hover {
-      background: #1b5fc9;
+      background: var(--accent-hover);
     }
 
     .btn-outline {
       background: transparent;
-      color: #1e1e2f;
-      border: 1.5px solid #d0d5dd;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-medium);
     }
 
     .btn-outline:hover {
-      background: #f0f2f6;
-      border-color: #b0b8c5;
+      background: var(--bg-elevated);
+      border-color: var(--text-secondary);
     }
 
-    /* hero */
+    /* ---------- HERO ---------- */
     .hero {
       display: flex;
       align-items: center;
@@ -109,12 +211,12 @@
     }
 
     .hero-content {
-      flex: 1 1 400px;
+      flex: 1 1 380px;
     }
 
     .hero-badge {
-      background: #e9efff;
-      color: #2d7aed;
+      background: var(--bg-badge);
+      color: var(--accent);
       padding: 6px 14px;
       border-radius: 40px;
       font-size: 0.85rem;
@@ -124,23 +226,23 @@
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 24px;
-      color: #0a0c10;
+      color: var(--text-primary);
     }
 
     .hero h1 .highlight {
-      color: #2d7aed;
+      color: var(--accent);
       position: relative;
       display: inline-block;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #4a4a5e;
+      font-size: 1.15rem;
+      color: var(--text-secondary);
       max-width: 520px;
       margin-bottom: 32px;
     }
@@ -158,99 +260,178 @@
     }
 
     .hero-social a {
-      color: #5b5b70;
+      color: var(--text-secondary);
       font-size: 1.5rem;
       transition: color 0.2s, transform 0.2s;
     }
 
     .hero-social a:hover {
-      color: #2d7aed;
+      color: var(--accent);
       transform: translateY(-2px);
     }
 
+    /* ---------- CODE ANIMATION (terminal card) ---------- */
     .hero-visual {
-      flex: 1 1 300px;
+      flex: 1 1 380px;
       display: flex;
       justify-content: center;
       align-items: center;
+      min-width: 0;
     }
 
-    .avatar-card {
-      background: white;
-      padding: 24px;
-      border-radius: 48px;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-      text-align: center;
+    .code-window {
       width: 100%;
-      max-width: 360px;
-      border: 1px solid #f0f2f6;
+      max-width: 480px;
+      background: var(--code-bg);
+      border-radius: 24px;
+      box-shadow: 0 24px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+      overflow: hidden;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .avatar-icon {
-      width: 160px;
-      height: 160px;
-      background: linear-gradient(135deg, #2d7aed, #6aa4ff);
-      border-radius: 50%;
-      margin: 0 auto 20px;
+    .code-window:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 32px 64px -16px rgba(0,0,0,0.6), 0 0 0 1px rgba(77,142,255,0.25);
+    }
+
+    .code-titlebar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-      color: white;
-      font-weight: 500;
-      box-shadow: 0 12px 24px -8px rgba(45, 122, 237, 0.4);
+      gap: 8px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      user-select: none;
     }
 
-    .avatar-card h3 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 6px;
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+
+    .code-titlebar .filename {
+      margin-left: 8px;
+      font-size: 0.78rem;
+      color: var(--code-comment);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
     }
 
-    .avatar-card .title {
-      color: #5b5b70;
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
-
-    .tech-badge-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 12px;
-    }
-
-    .tech-badge {
-      background: #f0f4fe;
-      color: #2d7aed;
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 0.8rem;
+    .code-titlebar .lang-badge {
+      margin-left: auto;
+      font-size: 0.65rem;
       font-weight: 600;
+      color: #ff7edb;
+      background: rgba(255,126,219,0.1);
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    /* section titles */
+    .code-body {
+      padding: 18px 16px 22px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      line-height: 1.65;
+      white-space: pre;
+      tab-size: 2;
+    }
+
+    .line {
+      display: flex;
+      align-items: flex-start;
+      min-height: 1.65em;
+    }
+
+    .line-num {
+      flex-shrink: 0;
+      width: 2.2em;
+      color: rgba(255,255,255,0.18);
+      user-select: none;
+      text-align: right;
+      padding-right: 1em;
+      font-size: 0.78rem;
+    }
+
+    .line-content {
+      flex: 1;
+      color: var(--code-text);
+      white-space: pre-wrap;
+      word-break: break-word;
+      position: relative;
+    }
+
+    /* syntax colors */
+    .kw { color: var(--code-keyword); }
+    .fn { color: var(--code-fn); }
+    .str { color: var(--code-string); }
+    .cmt { color: var(--code-comment); font-style: italic; }
+    .num { color: var(--code-number); }
+    .typ { color: var(--code-type); }
+    .var { color: var(--code-variable); }
+    .op { color: var(--code-operator); }
+    .pun { color: #d4d4d4; }
+    .attr { color: #9cdcfe; }
+    .self { color: #ff7edb; }
+    .macro { color: #ff7edb; }
+
+    /* typing cursor */
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.1em;
+      background: var(--accent);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1.1s step-end infinite;
+      box-shadow: 0 0 8px var(--accent);
+      border-radius: 1px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* typing line fade-in */
+    .typing-line {
+      opacity: 0;
+      animation: fadeIn 0.25s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ---------- SECTION TITLES ---------- */
     .section-title {
       font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 16px;
-      color: #0a0c10;
+      color: var(--text-primary);
     }
 
     .section-subtitle {
-      color: #5b5b70;
+      color: var(--text-secondary);
       font-size: 1.1rem;
       max-width: 640px;
       margin-bottom: 48px;
     }
 
-    /* skills / services */
+    /* ---------- SKILLS ---------- */
     .skills-section {
       padding: 80px 0;
-      background: white;
+      background: var(--bg-surface);
       border-radius: 64px 64px 0 0;
+      transition: background 0.3s;
     }
 
     .skills-grid {
@@ -260,21 +441,22 @@
     }
 
     .skill-card {
-      background: #f9fafc;
+      background: var(--bg-body);
       border-radius: 32px;
       padding: 32px 28px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid #eef1f8;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s, border-color 0.3s;
+      border: 1px solid var(--border-light);
     }
 
     .skill-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-medium);
     }
 
     .skill-icon {
       font-size: 2.2rem;
-      color: #2d7aed;
+      color: var(--accent);
       margin-bottom: 20px;
     }
 
@@ -282,17 +464,19 @@
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 10px;
+      color: var(--text-primary);
     }
 
     .skill-card p {
-      color: #5b5b70;
+      color: var(--text-secondary);
       font-size: 0.95rem;
     }
 
-    /* projects */
+    /* ---------- PROJECTS ---------- */
     .projects-section {
       padding: 80px 0;
-      background: #f9fafc;
+      background: var(--bg-body);
+      transition: background 0.3s;
     }
 
     .projects-grid {
@@ -303,19 +487,19 @@
     }
 
     .project-card {
-      background: white;
+      background: var(--bg-card);
       border-radius: 28px;
       padding: 28px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
-      border: 1px solid #eef1f8;
-      transition: all 0.2s;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+      transition: all 0.2s, background 0.3s, border-color 0.3s;
       display: flex;
       flex-direction: column;
     }
 
     .project-card:hover {
-      border-color: #cbd9f0;
-      box-shadow: 0 16px 28px -10px rgba(45, 122, 237, 0.12);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-hover);
       transform: translateY(-4px);
     }
 
@@ -328,8 +512,8 @@
 
     .project-header i {
       font-size: 1.6rem;
-      color: #2d7aed;
-      background: #e9efff;
+      color: var(--accent);
+      background: var(--bg-badge);
       padding: 10px;
       border-radius: 16px;
     }
@@ -338,10 +522,11 @@
       font-size: 1.35rem;
       font-weight: 600;
       margin-bottom: 8px;
+      color: var(--text-primary);
     }
 
     .project-card p {
-      color: #5b5b70;
+      color: var(--text-secondary);
       font-size: 0.95rem;
       margin-bottom: 24px;
       flex: 1;
@@ -355,8 +540,8 @@
     }
 
     .project-tags span {
-      background: #f0f4fe;
-      color: #1e3f7a;
+      background: var(--bg-tag);
+      color: var(--accent);
       font-size: 0.75rem;
       font-weight: 600;
       padding: 4px 10px;
@@ -365,7 +550,7 @@
 
     .project-link {
       text-decoration: none;
-      color: #2d7aed;
+      color: var(--accent);
       font-weight: 600;
       font-size: 0.9rem;
       display: inline-flex;
@@ -376,13 +561,15 @@
 
     .project-link:hover {
       gap: 12px;
+      color: var(--accent-hover);
     }
 
-    /* contact / CTA */
+    /* ---------- CONTACT ---------- */
     .contact-section {
       padding: 80px 0;
-      background: white;
+      background: var(--bg-surface);
       border-radius: 64px 64px 0 0;
+      transition: background 0.3s;
     }
 
     .contact-wrapper {
@@ -402,10 +589,11 @@
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 16px;
+      color: var(--text-primary);
     }
 
     .contact-text p {
-      color: #5b5b70;
+      color: var(--text-secondary);
       font-size: 1.1rem;
       margin-bottom: 28px;
       max-width: 480px;
@@ -422,18 +610,24 @@
     .contact-form textarea {
       padding: 14px 18px;
       border-radius: 24px;
-      border: 1.5px solid #e2e6ef;
+      border: 1.5px solid var(--border-medium);
       font-family: inherit;
       font-size: 0.95rem;
-      background: #f9fafc;
+      background: var(--bg-input);
+      color: var(--text-primary);
       transition: border 0.2s, background 0.2s;
       outline: none;
     }
 
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--text-muted);
+    }
+
     .contact-form input:focus,
     .contact-form textarea:focus {
-      border-color: #2d7aed;
-      background: white;
+      border-color: var(--accent);
+      background: var(--bg-card);
     }
 
     .contact-form textarea {
@@ -445,17 +639,18 @@
       align-self: flex-start;
     }
 
-    /* footer */
+    /* ---------- FOOTER ---------- */
     .footer {
       padding: 40px 0;
-      border-top: 1px solid #eef1f8;
+      border-top: 1px solid var(--border-light);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 20px;
       font-size: 0.9rem;
-      color: #5b5b70;
+      color: var(--text-secondary);
+      transition: border-color 0.3s;
     }
 
     .footer-links {
@@ -465,15 +660,15 @@
 
     .footer-links a {
       text-decoration: none;
-      color: #5b5b70;
+      color: var(--text-secondary);
       transition: color 0.2s;
     }
 
     .footer-links a:hover {
-      color: #2d7aed;
+      color: var(--accent);
     }
 
-    /* responsive */
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.5rem;
@@ -500,6 +695,13 @@
       .footer-links {
         justify-content: center;
       }
+      .code-body {
+        font-size: 0.75rem;
+      }
+      .line-num {
+        width: 1.8em;
+        font-size: 0.7rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -513,12 +715,21 @@
       .btn {
         text-align: center;
       }
+      .code-titlebar .filename {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; opacity: 1; }
+      .typing-line { animation: none; opacity: 1; }
+      .code-window:hover { transform: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MAIN NAVIGATION + HERO -->
   <div class="container">
     <nav class="navbar">
       <div class="logo">alex<span>.dev</span></div>
@@ -528,10 +739,14 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#contact" class="btn" style="padding: 8px 20px;">Resume</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
       </ul>
     </nav>
 
-    <!-- HERO SECTION -->
     <section id="home" class="hero">
       <div class="hero-content">
         <div class="hero-badge"><i class="fas fa-code" style="margin-right: 6px;"></i> Available for work</div>
@@ -548,24 +763,25 @@
           <a href="#" aria-label="Dev.to"><i class="fab fa-dev"></i></a>
         </div>
       </div>
+
+      <!-- CODING ANIMATION WINDOW -->
       <div class="hero-visual">
-        <div class="avatar-card">
-          <div class="avatar-icon">AR</div>
-          <h3>Alex Rivera</h3>
-          <div class="title">Senior Software Engineer</div>
-          <div class="tech-badge-list">
-            <span class="tech-badge">React</span>
-            <span class="tech-badge">Node.js</span>
-            <span class="tech-badge">TypeScript</span>
-            <span class="tech-badge">AWS</span>
-            <span class="tech-badge">Python</span>
+        <div class="code-window" id="codeWindow">
+          <div class="code-titlebar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="filename">main.rs</span>
+            <span class="lang-badge">Rust</span>
+          </div>
+          <div class="code-body" id="codeBody">
+            <!-- lines are injected by JS for the typing effect -->
           </div>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- SKILLS / SERVICES -->
   <section id="skills" class="skills-section">
     <div class="container">
       <h2 class="section-title">What I do best</h2>
@@ -595,7 +811,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects" class="projects-section">
     <div class="container">
       <h2 class="section-title">Featured projects</h2>
@@ -604,7 +819,7 @@
         <div class="project-card">
           <div class="project-header">
             <i class="fas fa-chart-line"></i>
-            <span class="tech-badge" style="background:#e9efff; font-size:0.7rem;">Featured</span>
+            <span class="tech-badge" style="background:var(--bg-badge); font-size:0.7rem;">Featured</span>
           </div>
           <h3>Insight Analytics</h3>
           <p>Real-time dashboard for product teams. Built with React, D3.js, and a Node/GraphQL backend processing 2M+ events daily.</p>
@@ -648,15 +863,14 @@
     </div>
   </section>
 
-  <!-- CONTACT / CTA -->
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="contact-wrapper">
         <div class="contact-text">
           <h2>Let's build something great.</h2>
           <p>I'm currently open to freelance projects and full-time opportunities. Drop me a message and I'll get back to you within 24 hours.</p>
-          <div style="display: flex; gap: 24px; margin-top: 8px; font-size: 1.1rem;">
-            <span><i class="fas fa-envelope" style="color:#2d7aed; margin-right: 8px;"></i> alex@alexrivera.dev</span>
+          <div style="display: flex; gap: 24px; margin-top: 8px; font-size: 1.1rem; color: var(--text-secondary);">
+            <span><i class="fas fa-envelope" style="color:var(--accent); margin-right: 8px;"></i> alex@alexrivera.dev</span>
           </div>
         </div>
         <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo: message sent! (This is a static demo)');">
@@ -669,7 +883,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer container">
     <div>© 2025 Alex Rivera — Software Engineer</div>
     <div class="footer-links">
@@ -681,8 +894,45 @@
     </div>
   </footer>
 
-  <!-- smooth scrolling for anchor links (in case browser doesn't support) -->
   <script>
+    /* ---------- THEME TOGGLE ---------- */
+    (function() {
+      const html = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const icon = toggle.querySelector('i');
+
+      function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateIcon(theme);
+      }
+
+      function updateIcon(theme) {
+        if (theme === 'dark') {
+          icon.className = 'fas fa-sun';
+        } else {
+          icon.className = 'fas fa-moon';
+        }
+      }
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        html.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        updateIcon('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+
+      toggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+      });
+    })();
+
+    /* ---------- SMOOTH SCROLL ---------- */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -694,6 +944,180 @@
         }
       });
     });
+
+    /* ---------- CODING TYPING ANIMATION (RUST) ---------- */
+    (function() {
+      const body = document.getElementById('codeBody');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Each line is a list of tokens: [cssClass, text]
+      // Classes map to our syntax highlighting spans
+      const codeLines = [
+        { indent: 0, tokens: [['cmt', '// async worker in Rust 🦀']] },
+        { indent: 0, tokens: [['kw', 'use'], ['pun', ' '], ['var', 'tokio'], ['pun', '::'], ['pun', '{ '], ['var', 'sync'], ['pun', ', '], ['var', 'time'], ['pun', ' };']] },
+        { indent: 0, tokens: [['kw', 'use'], ['pun', ' '], ['var', 'serde'], ['pun', '::'], ['pun', '{ '], ['typ', 'Deserialize'], ['pun', ', '], ['typ', 'Serialize'], ['pun', ' };']] },
+        { indent: 0, tokens: [] },
+        { indent: 0, tokens: [['attr', '#[derive('], ['typ', 'Debug'], ['pun', ', '], ['typ', 'Serialize'], ['pun', ', '], ['typ', 'Deserialize'], ['pun', ')]]'] },
+        { indent: 0, tokens: [['kw', 'struct'], ['pun', ' '], ['typ', 'Job'], ['pun', ' {']] },
+        { indent: 1, tokens: [['kw', 'pub'], ['pun', ' '], ['var', 'id'], ['pun', ': '], ['typ', 'u64'], ['pun', ',']] },
+        { indent: 1, tokens: [['kw', 'pub'], ['pun', ' '], ['var', 'payload'], ['pun', ': '], ['typ', 'String'], ['pun', ',']] },
+        { indent: 0, tokens: [['pun', '}']] },
+        { indent: 0, tokens: [] },
+        { indent: 0, tokens: [['kw', 'pub async fn'], ['pun', ' '], ['fn', 'process'], ['pun', '('], ['var', 'job'], ['pun', ': '], ['typ', 'Job'], ['pun', ') -> '], ['typ', 'Result'], ['pun', '<(), '], ['typ', 'Box'], ['pun', '<dyn '], ['typ', 'Error'], ['pun', '>>> {']] },
+        { indent: 1, tokens: [['cmt', '// simulate async I/O']] },
+        { indent: 1, tokens: [['var', 'time'], ['pun', '::'], ['fn', 'sleep'], ['pun', '('], ['typ', 'Duration'], ['pun', '::'], ['fn', 'from_millis'], ['pun', '('], ['num', '120'], ['pun', ')).'], ['kw', 'await'], ['pun', ';']] },
+        { indent: 1, tokens: [['var', 'println!'], ['pun', '('], ['str', '"done: {}"'], ['pun', ', '], ['var', 'job'], ['pun', '.'], ['var', 'id'], ['pun', ');']] },
+        { indent: 1, tokens: [['typ', 'Ok'], ['pun', '(())']] },
+        { indent: 0, tokens: [['pun', '}']] },
+        { indent: 0, tokens: [] },
+        { indent: 0, tokens: [['attr', '#[tokio::main]']] },
+        { indent: 0, tokens: [['kw', 'async fn'], ['pun', ' '], ['fn', 'main'], ['pun', '() {']] },
+        { indent: 1, tokens: [['kw', 'let'], ['pun', ' '], ['var', 'job'], ['pun', ' = '], ['typ', 'Job'], ['pun', ' {']] },
+        { indent: 2, tokens: [['var', 'id'], ['pun', ': '], ['num', '42'], ['pun', ',']] },
+        { indent: 2, tokens: [['var', 'payload'], ['pun', ': '], ['str', '"hello"'], ['pun', '.'], ['fn', 'into'], ['pun', '(),']] },
+        { indent: 1, tokens: [['pun', '};']] },
+        { indent: 1, tokens: [['kw', 'if let'], ['pun', ' '], ['typ', 'Err'], ['pun', '('], ['var', 'e'], ['pun', ') = '], ['fn', 'process'], ['pun', '('], ['var', 'job'], ['pun', ').'], ['kw', 'await'], ['pun', ' {']] },
+        { indent: 2, tokens: [['var', 'eprintln!'], ['pun', '('], ['str', '"error: {e}"'], ['pun', ');']] },
+        { indent: 1, tokens: [['pun', '}']] },
+        { indent: 0, tokens: [['pun', '}']] },
+      ];
+
+      // Build the DOM lines initially (hidden), then reveal with typing effect
+      const lineElements = [];
+      const cursorEl = document.createElement('span');
+      cursorEl.className = 'cursor';
+
+      // Utility to create a line element from tokens
+      function createLineElement(tokens, indent) {
+        const lineDiv = document.createElement('div');
+        lineDiv.className = 'line typing-line';
+
+        const numDiv = document.createElement('span');
+        numDiv.className = 'line-num';
+        numDiv.textContent = ''; // will fill later
+
+        const contentDiv = document.createElement('span');
+        contentDiv.className = 'line-content';
+
+        // Add indentation spaces
+        if (indent > 0) {
+          const spaces = document.createTextNode('  '.repeat(indent));
+          contentDiv.appendChild(spaces);
+        }
+
+        // Append token spans
+        tokens.forEach(([cls, text]) => {
+          const span = document.createElement('span');
+          span.className = cls;
+          span.textContent = text;
+          contentDiv.appendChild(span);
+        });
+
+        lineDiv.appendChild(numDiv);
+        lineDiv.appendChild(contentDiv);
+        return { lineDiv, numDiv, contentDiv, tokens };
+      }
+
+      // Prepare all line elements but keep them hidden
+      const preparedLines = codeLines.map((line, idx) => {
+        const { lineDiv, numDiv, contentDiv } = createLineElement(line.tokens, line.indent);
+        numDiv.textContent = (idx + 1).toString();
+        return { lineDiv, numDiv, contentDiv, tokens: line.tokens };
+      });
+
+      // Clear body and append all lines
+      body.innerHTML = '';
+      preparedLines.forEach(pl => {
+        body.appendChild(pl.lineDiv);
+      });
+
+      // Add the cursor at the end of the last line initially (hidden until animation starts)
+      // We'll manage the cursor during typing
+
+      if (reducedMotion) {
+        // Just show everything immediately
+        preparedLines.forEach(pl => {
+          pl.lineDiv.classList.remove('typing-line');
+          pl.lineDiv.style.opacity = '1';
+        });
+        // Append cursor to last line content
+        const last = preparedLines[preparedLines.length - 1];
+        if (last) last.contentDiv.appendChild(cursorEl);
+        return;
+      }
+
+      // --- Typing simulation ---
+      // We'll reveal lines one by one, and within each line, reveal characters progressively.
+
+      let currentLineIndex = 0;
+      let currentCharIndex = 0;
+      const totalLines = preparedLines.length;
+
+      // We'll hide all initially (already have typing-line class with opacity 0)
+      // We need to track the original tokens' text to re-append progressively? 
+      // Simpler approach: for each line, build the full HTML, but set opacity 0.
+      // Then we can simply set the line's opacity to 1 and add a cursor that "types" by moving.
+      // However, a true character-by-character typing would require splitting tokens.
+      // For performance and simplicity, we'll do a "line-by-line" reveal with a brief delay,
+      // but with a cursor that appears to be typing at the end of each line.
+      // To simulate typing within a line, we can temporarily replace the content with empty,
+      // then add characters back one by one. But that's complex.
+      // Alternative: keep lines hidden, reveal each line fully (with a fade-in) and move cursor to next line.
+      // That's clean and still looks great. We'll also add a slight delay per line.
+
+      // But we want a typing effect within lines too. Let's do a hybrid:
+      // For each line, we build the full DOM, but we set its content to empty (just indent),
+      // then gradually append text nodes from tokens. But that breaks token styling.
+      // For simplicity and visual appeal, we'll stick to line-by-line fade-in with cursor moving.
+
+      // Let's implement a smooth line-by-line reveal with a moving cursor.
+
+      // Remove any existing cursor
+      if (cursorEl.parentNode) cursorEl.parentNode.removeChild(cursorEl);
+
+      // Show first line immediately with cursor
+      function revealLine(index) {
+        if (index >= totalLines) {
+          // Animation complete: add cursor to last line
+          const last = preparedLines[totalLines - 1];
+          if (last) {
+            // Remove cursor from any previous location
+            if (cursorEl.parentNode) cursorEl.parentNode.removeChild(cursorEl);
+            last.contentDiv.appendChild(cursorEl);
+          }
+          return;
+        }
+
+        const pl = preparedLines[index];
+        // Reveal the line
+        pl.lineDiv.classList.remove('typing-line');
+        pl.lineDiv.style.opacity = '1';
+
+        // Remove cursor from previous location
+        if (cursorEl.parentNode) {
+          cursorEl.parentNode.removeChild(cursorEl);
+        }
+
+        // Append cursor to current line (end)
+        pl.contentDiv.appendChild(cursorEl);
+
+        // Schedule next line
+        setTimeout(() => {
+          revealLine(index + 1);
+        }, 180 + Math.random() * 120); // vary speed slightly
+      }
+
+      // Start after a short delay
+      setTimeout(() => {
+        // First, remove the initial hidden state of first line, then start
+        revealLine(0);
+      }, 400);
+
+      // To make it look like typing, we can also animate the cursor position? 
+      // It's fine.
+
+      // Optional: restart animation every 30 seconds? Not necessary.
+    })();
   </script>
 </body>
 </html>
