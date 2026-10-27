@@ -20,10 +20,9 @@
   --accent-soft: #e9efff;
   --shadow-card: 0 6px 18px rgba(0, 0, 0, 0.02);
   --shadow-hover: 0 16px 28px -10px rgba(45, 122, 237, 0.12);
-  --avatar-gradient: linear-gradient(135deg, #2d7aed, #6aa4ff);
   --navbar-border: transparent;
 
-  /* Code editor (intentionally dark in both themes) */
+  /* Code editor */
   --code-bg: #1e1e2f;
   --code-text: #d4d4d4;
   --code-keyword: #c586c0;
@@ -54,7 +53,6 @@
   --accent-soft: #1a2a4a;
   --shadow-card: 0 6px 18px rgba(0, 0, 0, 0.4);
   --shadow-hover: 0 16px 28px -10px rgba(77, 142, 255, 0.2);
-  --avatar-gradient: linear-gradient(135deg, #4d8eff, #8bb8ff);
   --navbar-border: #1e2632;
 
   --code-bg: #0f1219;
@@ -131,14 +129,14 @@ body {
   align-items: center;
 }
 
-.nav-links a {
+.nav-links > li > a:not(.btn) {
   text-decoration: none;
   color: var(--text-secondary);
   transition: color 0.2s;
   font-size: 1rem;
 }
 
-.nav-links a:hover {
+.nav-links > li > a:not(.btn):hover {
   color: var(--accent);
 }
 
@@ -173,12 +171,12 @@ body {
   align-items: center;
   gap: 8px;
   background: var(--accent);
-  color: #fff;
+  color: #ffffff !important;
   padding: 10px 24px;
   border-radius: 40px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, transform 0.1s;
+  transition: background 0.2s;
   border: none;
   font-size: 0.95rem;
   cursor: pointer;
@@ -191,11 +189,13 @@ body {
 
 .btn--small {
   padding: 8px 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   border: 1.5px solid var(--border-medium);
 }
 
@@ -349,12 +349,10 @@ body {
 
 .code-body {
   padding: 18px 16px 22px;
-  overflow-x: auto;
   font-size: 0.82rem;
   line-height: 1.65;
   white-space: pre;
   tab-size: 2;
-  min-height: 200px;
 }
 
 .line {
@@ -389,7 +387,6 @@ body {
 .num { color: var(--code-number); }
 .typ { color: var(--code-type); }
 .var { color: var(--code-variable); }
-.op { color: var(--code-operator); }
 .pun { color: #d4d4d4; }
 .attr { color: #9cdcfe; }
 
