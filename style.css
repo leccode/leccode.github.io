@@ -431,6 +431,9 @@ body {
 .attr {
   color: #9cdcfe;
 }
+.op {
+  color: #d4d4d4;
+}
 
 .cursor {
   display: inline-block;
