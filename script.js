@@ -12,11 +12,9 @@
     icon.className = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
   }
 
-  // Sync icon with the theme already set on <html>
   const initialTheme = html.getAttribute("data-theme") || "dark";
   updateIcon(initialTheme);
 
-  // Restore saved preference (if any)
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "light" || savedTheme === "dark") {
     html.setAttribute("data-theme", savedTheme);
@@ -68,7 +66,6 @@
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
-  // Each line = { indent: number, tokens: [[cssClass, text], ...] }
   const codeLines = [
     { indent: 0, tokens: [["cmt", "// async worker in Rust 🦀"]] },
     {
@@ -276,7 +273,6 @@
     { indent: 0, tokens: [["pun", "}"]] },
   ];
 
-  // Build the full DOM once
   const fragment = document.createDocumentFragment();
   const lineElements = [];
 
@@ -310,7 +306,6 @@
 
   codeBody.appendChild(fragment);
 
-  // Reduced motion: show everything with a static cursor
   if (reducedMotion) {
     const cursor = document.createElement("span");
     cursor.className = "cursor";
@@ -318,7 +313,6 @@
     return;
   }
 
-  // Otherwise: hide lines, then reveal one-by-one
   lineElements.forEach((le) => {
     le.lineDiv.style.opacity = "0";
   });

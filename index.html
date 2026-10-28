@@ -26,15 +26,18 @@
     <div class="container">
       <nav class="navbar">
         <div class="navbar-brand">
-          <div class="logo">ecco<span>.dev</span></div>
+          <a href="index.html" class="logo">ecco<span>.dev</span></a>
         </div>
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#profile">Profile</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#science_tech_blog">Science & Tech Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#profile">Profile</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li>
+            <a href="index.html#science_tech_blog">Science & Tech Blog</a>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
           <li>
             <button
               class="theme-toggle"
@@ -100,9 +103,9 @@
       </section>
     </div>
 
-    <section id="profile" class="projects-section" style="padding-top: 0">
+    <section id="profile" class="profile-section">
       <div class="container">
-        <h2 class="section-title">Academic Profile</h2>
+        <h2 class="section-title">Academic & Professional Profile</h2>
         <p class="section-subtitle">
           Dipl. Biomedical Engineer, MEng. MPhil Candidate in Neural Networks
           and in Quantum Computing. My research interests lie in Deep Learning,
@@ -135,11 +138,8 @@
         </div>
       </div>
 
-      <br />
-      <br />
-
-      <div class="container">
-        <h2 class="section-title">Professional Profile</h2>
+      <div class="container container-mt">
+        <h2 class="section-title">Professional Experience</h2>
         <p class="section-subtitle">
           Building reliable backend and full-stack production systems across
           fintech, healthcare, and logistics. Strong background in designing
@@ -185,8 +185,9 @@
             <div class="skill-icon"><i class="fas fa-database"></i></div>
             <h3>Backend &amp; APIs</h3>
             <p>
-              .NET/C#, Node.js, Python, REST, Rust, SQL Server, and PostgreSQL.
-              Designing scalable web apps, APIs, and robust data layers.
+              .NET/C#, Node.js, Python, REST, Rust (Switching), SQL Server, and
+              PostgreSQL. Designing scalable web apps, APIs, and robust data
+              layers.
             </p>
           </div>
           <div class="skill-card">
@@ -224,18 +225,20 @@
               <span>.NET</span><span>C#</span><span>SQL Server</span
               ><span>Vue.js</span>
             </div>
-            <a
-              href="https://github.com/leccode/nucleic-acids-api"
-              target="_blank"
-              class="project-link"
-              >GitHub Backend <i class="fas fa-arrow-right"></i
-            ></a>
-            <a
-              href="https://github.com/leccode/nucleic-acids-ui"
-              target="_blank"
-              class="project-link"
-              >GitHub Frontend <i class="fas fa-arrow-right"></i
-            ></a>
+            <div class="project-links">
+              <a
+                href="https://github.com/leccode/nucleic-acids-api"
+                target="_blank"
+                class="project-link"
+                >GitHub Backend <i class="fas fa-arrow-right"></i
+              ></a>
+              <a
+                href="https://github.com/leccode/nucleic-acids-ui"
+                target="_blank"
+                class="project-link"
+                >GitHub Frontend <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
           </article>
 
           <article class="project-card">
@@ -258,8 +261,8 @@
 
           <article class="project-card">
             <div class="project-header">
-              <div class="project-header"><i class="fas fa-robot"></i></div>
-              <span class="tech-badge">Soon</span>
+              <i class="fas fa-robot"></i>
+              <span class="tech-badge tech-badge--muted">Soon</span>
             </div>
             <h3>Gamified Learning Platform</h3>
             <p>A platform for developers to learn new tech-stack.</p>
@@ -277,8 +280,7 @@
 
     <section
       id="science_tech_blog"
-      class="projects-section"
-      style="padding-top: 0"
+      class="projects-section projects-section--flush"
     >
       <div class="container">
         <h2 class="section-title">Scientific & Tech Articles</h2>
@@ -302,14 +304,7 @@
           <article class="project-card">
             <div class="project-header">
               <i class="fas fa-atom"></i>
-              <span
-                class="tech-badge"
-                style="
-                  background: var(--bg-elevated);
-                  color: var(--text-secondary);
-                "
-                >Soon</span
-              >
+              <span class="tech-badge tech-badge--muted">Soon</span>
             </div>
             <h3>Quantum Computing</h3>
             <p>Foundation and limitations. Is all about hype?</p>
@@ -324,9 +319,8 @@
           <div class="contact-text">
             <h2>Let's build something great.</h2>
             <p>
-              I'm currently open to freelance projects and full-time
-              opportunities. Drop me a message and I'll get back to you within
-              24 hours.
+              I'm currently open to freelance projects and opportunities. Drop
+              me a message and I'll get back to you within 24 hours.
             </p>
             <div class="contact-email">
               <i class="fas fa-envelope" aria-hidden="true"></i>
@@ -343,7 +337,7 @@
             </a>
           </div>
         </div>
-        <div class="hero-social">
+        <div class="hero-social contact-social">
           <a
             href="https://github.com/leccode"
             target="_blank"
@@ -366,13 +360,14 @@
         Rights Reserved.
       </div>
       <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#profile">Profile</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#science_tech_blog">Science & Tech Blog</a>
-        <a href="#contact">Contact</a>
-        <a href="#">Privacy</a>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#profile">Profile</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#science_tech_blog">Science & Tech Blog</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="index.html#contact">Contact</a>
       </div>
     </footer>
 

@@ -95,6 +95,10 @@ body {
   padding: 0 24px;
 }
 
+.container-mt {
+  margin-top: 60px;
+}
+
 /* ============================================================
    NAVBAR
    ============================================================ */
@@ -113,7 +117,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-width: 500px;
 }
 
 .logo {
@@ -121,16 +124,11 @@ body {
   font-size: 1.8rem;
   letter-spacing: -0.02em;
   color: var(--text-primary);
+  text-decoration: none;
 }
 
 .logo span {
   color: var(--accent);
-}
-
-.navbar-subtitle {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.3;
 }
 
 .nav-links {
@@ -139,6 +137,7 @@ body {
   list-style: none;
   font-weight: 500;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-links > li > a:not(.btn) {
@@ -203,12 +202,6 @@ body {
   background: var(--accent-hover);
 }
 
-.btn--small {
-  padding: 8px 20px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
 .btn-outline {
   background: transparent;
   color: var(--text-primary) !important;
@@ -260,8 +253,6 @@ body {
 
 .hero h1 .highlight {
   color: var(--accent);
-  position: relative;
-  display: inline-block;
 }
 
 .hero p {
@@ -294,6 +285,11 @@ body {
 .hero-social a:hover {
   color: var(--accent);
   transform: translateY(-2px);
+}
+
+.contact-social {
+  margin-top: 40px;
+  justify-content: center;
 }
 
 /* ============================================================
@@ -359,7 +355,6 @@ body {
   margin-left: 8px;
   font-size: 0.78rem;
   color: var(--code-comment);
-  font-family: "JetBrains Mono", monospace;
   letter-spacing: 0.02em;
 }
 
@@ -407,7 +402,7 @@ body {
   position: relative;
 }
 
-/* syntax colors */
+/* Syntax Colors */
 .kw {
   color: var(--code-keyword);
 }
@@ -460,7 +455,7 @@ body {
 }
 
 /* ============================================================
-   SECTIONS
+   GENERAL SECTIONS
    ============================================================ */
 .section-title {
   font-size: 2.2rem;
@@ -477,8 +472,25 @@ body {
   margin-bottom: 48px;
 }
 
+/* New Page Content (About/Privacy) */
+.page-content {
+  padding: 80px 0;
+  min-height: 60vh;
+}
+
+.text-content {
+  max-width: 720px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.text-content p {
+  margin-bottom: 20px;
+}
+
 /* ============================================================
-   PROFILE SECTION
+   SKILLS & PROFILE
    ============================================================ */
 .profile-section {
   padding: 80px 0;
@@ -487,9 +499,6 @@ body {
   transition: background 0.3s;
 }
 
-/* ============================================================
-   SKILLS
-   ============================================================ */
 .skills-section {
   padding: 80px 0;
   background: var(--bg-card);
@@ -548,6 +557,10 @@ body {
   transition: background 0.3s;
 }
 
+.projects-section--flush {
+  padding-top: 0;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -602,6 +615,11 @@ body {
   letter-spacing: 0.04em;
 }
 
+.tech-badge--muted {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+}
+
 .project-card h3 {
   font-size: 1.35rem;
   font-weight: 600;
@@ -632,6 +650,12 @@ body {
   border-radius: 30px;
 }
 
+.project-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .project-link {
   text-decoration: none;
   color: var(--accent);
@@ -658,6 +682,7 @@ body {
   background: var(--bg-card);
   border-radius: 64px 64px 0 0;
   transition: background 0.3s;
+  text-align: center;
 }
 
 .contact-wrapper {
@@ -665,7 +690,8 @@ body {
   gap: 60px;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: left;
 }
 
 .contact-text {
@@ -729,7 +755,7 @@ body {
 
 .footer-links {
   display: flex;
-  gap: 28px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -753,13 +779,9 @@ body {
   }
   .nav-links {
     width: 100%;
-    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 16px;
     margin-top: 8px;
-  }
-  .nav-links li {
-    margin-bottom: 4px;
   }
 }
 
@@ -802,6 +824,12 @@ body {
   }
   .code-titlebar .filename {
     font-size: 0.7rem;
+  }
+  .contact-wrapper {
+    text-align: center;
+  }
+  .contact-action {
+    justify-content: center;
   }
 }
 
