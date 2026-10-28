@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Physics Informed Neural Networks - Constantine Lekkos"
+    />
+    <title>Physics Informed Neural Networks · Constantine Lekkos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a href="../index.html" class="logo">ecco<span>.dev</span></a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#profile">Profile</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li>
+            <a href="../index.html#science_tech_blog">Science & Tech Blog</a>
+          </li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+          <li>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              aria-label="Toggle dark/light mode"
+            >
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <section class="page-content">
+      <div class="container">
+        <div style="margin-bottom: 24px">
+          <a
+            href="../index.html#science_tech_blog"
+            class="project-link"
+            style="gap: 8px"
+          >
+            <i class="fas fa-arrow-left"></i> Back to Articles
+          </a>
+        </div>
+        <h1 class="section-title">Physics Informed Neural Networks</h1>
+        <p
+          style="
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+          "
+        >
+          Published on October 28, 2026
+        </p>
+        <div class="text-content">
+          <p>
+            Physics-Informed Neural Networks (PINNs) are a class of deep
+            learning models that integrate physical laws, expressed as partial
+            differential equations (PDEs), directly into the training process.
+          </p>
+          <p>
+            Instead of relying purely on large datasets, PINNs use the governing
+            equations of a system (like fluid dynamics, thermodynamics, or
+            quantum mechanics) as a regularization mechanism. This allows the
+            network to learn the underlying physics of a problem, even with very
+            little data.
+          </p>
+          <figure class="article-figure">
+            <img
+              src="images/Physics_Informed_Neural_Networks_Infographic.png"
+              alt="Diagram showing the architecture of a Physics Informed Neural Network"
+              loading="lazy"
+            />
+            <figcaption>
+              Architecture of a PINN. The network minimizes data loss and
+              physics loss simultaneously.
+            </figcaption>
+          </figure>
+          <h3
+            style="
+              color: var(--text-primary);
+              margin-top: 32px;
+              margin-bottom: 16px;
+              font-size: 1.4rem;
+            "
+          >
+            How it works
+          </h3>
+          <p>A PINN minimizes a loss function composed of two parts:</p>
+          <ul style="margin-left: 20px; margin-bottom: 20px">
+            <li style="margin-bottom: 10px">
+              <strong>Data Loss:</strong> The standard error between the
+              network's predictions and any available observed data.
+            </li>
+            <li style="margin-bottom: 10px">
+              <strong>Physics Loss:</strong> The residual of the governing PDE
+              evaluated at collocation points, which must be close to zero.
+            </li>
+          </ul>
+          <p>
+            By combining these two, the network is forced to obey the laws of
+            physics, making it incredibly powerful for solving forward and
+            inverse problems in scientific computing.
+          </p>
+          <p>
+            <em
+              >A full hands-on implementation guide and code example will be
+              available soon in a future article.</em
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer class="footer container">
+      <div>
+        © <span id="year"></span> Constantine Lekkos - Software Engineer. All
+        Rights Reserved.
+      </div>
+      <div class="footer-links">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#profile">Profile</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#science_tech_blog">Science & Tech Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </footer>
+    <script src="../script.js" defer></script>
+  </body>
+</html>

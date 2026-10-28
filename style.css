@@ -472,7 +472,7 @@ body {
   margin-bottom: 48px;
 }
 
-/* New Page Content (About/Privacy) */
+/* Page Content (About/Privacy) */
 .page-content {
   padding: 80px 0;
   min-height: 60vh;
@@ -487,6 +487,29 @@ body {
 
 .text-content p {
   margin-bottom: 20px;
+}
+
+/* ============================================================
+   ARTICLE IMAGES
+   ============================================================ */
+.article-figure {
+  margin: 32px 0;
+  text-align: center;
+}
+
+.article-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+}
+
+.article-figure figcaption {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
 }
 
 /* ============================================================
@@ -672,6 +695,16 @@ body {
 .project-link:hover {
   gap: 12px;
   color: var(--accent-hover);
+}
+
+.article-card {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.article-card:hover h3 {
+  color: var(--accent);
+  transition: color 0.2s;
 }
 
 /* ============================================================
