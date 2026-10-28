@@ -493,8 +493,24 @@ body {
 }
 
 /* ============================================================
-   ARTICLE IMAGES
+   ARTICLES
    ============================================================ */
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.article-tags span {
+  background: var(--bg-badge);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 30px;
+}
+
 .article-figure {
   margin: 32px 0;
   text-align: center;
