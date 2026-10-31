@@ -67,22 +67,78 @@
             font-size: 1.1rem;
           "
         >
-          Published on October 28, 2026<br />Author: Constantine Lekkos
+          Published on October 31, 2026<br />Author: Constantine Lekkos
         </p>
         <br />
         <div class="text-content">
           <p>
-            Physics-Informed Neural Networks (PINNs) are a class of deep
-            learning models that integrate physical laws, expressed as partial
-            differential equations (PDEs), directly into the training process.
+            We live in an era in which data plays a crucial role in our daily
+            lives. That said, data have always been there to help us draw
+            conclusions and make critical decisions. In recent years, we have
+            taken advantage of technology and AI (a term introduced in the 1950s
+            by Alan Turing), developing algorithms and techniques that help us
+            solve problems across a variety of scientific and industrial
+            domains. For example, we can use medical images to predict a
+            patient's disease or likely response to treatment; depending, of
+            course, on the data.
           </p>
           <p>
-            Instead of relying purely on large datasets, PINNs use the governing
-            equations of a system (like fluid dynamics, thermodynamics, or
-            quantum mechanics) as a regularization mechanism. This allows the
-            network to learn the underlying physics of a problem, even with very
-            little data.
+            A category of AI that goes a step beyond Machine Learning (ML) is
+            Deep Learning (DL). The core of DL is Artificial Neural Networks
+            (ANNs). ANNs are built from neurons, each of which computes a linear
+            equation. Below is a simple explanation.
           </p>
+          <p>
+            A single neuron computes a weighted sum of its inputs plus a bias:
+          </p>
+          <p><b>z = Σ (wᵢ · xᵢ) + b</b>, for i = 1 … n [1]</p>
+          <p>In vector form: <b>z = w · x + b</b> [1]</p>
+          <p>
+            The output passes through an activation function:
+            <b>a = σ(z) = σ(w · x + b)</b> [1]
+          </p>
+          <p>
+            When data is hard to obtain, scarce or of poor quality, a problem
+            arises. In some cases, ANNs can still find and build patterns
+            without much reliable data; a challenge scientists are actively
+            trying to solve.
+          </p>
+          <p>
+            Such a problem can be addressed using physical laws and equations to
+            help identify the real system. In computational science, scientists
+            and engineers use mathematical concepts to simulate phenomena; ANNs
+            can incorporate this paradigm through differential equations.
+          </p>
+          <p>
+            From this concept, a new category of ANNs arises:
+            <strong>Physics-Informed Neural Networks (PINNs)</strong>. They were
+            first formally introduced by M. Raissi, P. Perdikaris, and G. E.
+            Karniadakis. [2]
+          </p>
+          <p>
+            PINNs solve problems using partial differential equations (PDEs) and
+            physical laws. These laws are embedded directly into the neural
+            network's training process. The loss function - a metric of the
+            result's quality - is designed to minimize the residuals of the
+            equations. [2][3][4]
+          </p>
+          <p>
+            <b>L = L<sub>PDE</sub> + L<sub>IC</sub> + L<sub>BC</sub></b> [4]
+          </p>
+          <p>where:</p>
+          <ul>
+            <li>
+              <b>L<sub>PDE</sub></b> is the loss due to the PDE residuals.
+            </li>
+            <li>
+              <b>L<sub>IC</sub></b> is the loss due to the initial conditions.
+            </li>
+            <li>
+              <b>L<sub>BC</sub></b> is the loss due to the boundary conditions.
+            </li>
+          </ul>
+          <br />
+          <p>Below is an infographic that describes PINNs.</p>
           <figure class="article-figure">
             <img
               src="images/Physics_Informed_Neural_Networks_Infographic.png"
@@ -91,7 +147,8 @@
             />
             <figcaption>
               Architecture of a PINN. The network minimizes data loss and
-              physics loss simultaneously.
+              physics loss simultaneously. AI generated content for educational
+              purposes.
             </figcaption>
           </figure>
           <h3
@@ -108,17 +165,17 @@
           <ul style="margin-left: 20px; margin-bottom: 20px">
             <li style="margin-bottom: 10px">
               <strong>Data Loss:</strong> The standard error between the
-              network's predictions and any available observed data.
+              network's predictions and any available observed data. [5]
             </li>
             <li style="margin-bottom: 10px">
               <strong>Physics Loss:</strong> The residual of the governing PDE
-              evaluated at collocation points, which must be close to zero.
+              evaluated at collocation points, which must be close to zero. [5]
             </li>
           </ul>
           <p>
             By combining these two, the network is forced to obey the laws of
             physics, making it incredibly powerful for solving forward and
-            inverse problems in scientific computing.
+            inverse problems in scientific computing. [5]
           </p>
           <p>
             <em
@@ -141,22 +198,79 @@
         <ul style="margin-left: 20px; margin-bottom: 20px">
           <li style="margin-bottom: 10px">
             <strong
-              ><a
-                href="https://www.geeksforgeeks.org/deep-learning/partial-differential-equations-pdes-in-deep-larning/#1-physicsinformed-neural-networks-pinns"
-                target="_blank"
-                >Geeks For Geeks: Physics-Informed Neural Networks (PINNs)</a
-              ></strong
-            >
+              ><p style="font-size: 0.85em; color: #555">
+                [1] Cornell Virtual Workshop, "Multi-Layer Perceptron,"
+                <em>Scientific Machine Learning (SciML)</em>, Cornell
+                University.
+                <a
+                  href="https://cvw.cac.cornell.edu/SciML/mlp/perceptron"
+                  target="_blank"
+                  >[Link]</a
+                >
+              </p>
+            </strong>
           </li>
           <li style="margin-bottom: 10px">
             <strong
-              ><a
-                href="https://www.vizuaranewsletter.com/p/teach-your-neural-network-to-respect"
-                target="_blank"
-                >Vizuara AI Labs: Teach your neural network to "respect"
-                Physics</a
-              ></strong
-            >
+              ><p style="font-size: 0.85em; color: #555">
+                [2] M. Raissi, P. Perdikaris, G. E. Karniadakis,
+                "Physics-informed neural networks: A deep learning framework for
+                solving forward and inverse problems involving nonlinear partial
+                differential equations,"
+                <em>Journal of Computational Physics</em>, vol. 378, pp.
+                686-707, 2019.
+                <a
+                  href="https://faculty.sites.iastate.edu/hliu/files/inline-files/PINN_RPK_2019_1.pdf"
+                  target="_blank"
+                >
+                  [PDF]
+                </a>
+              </p>
+            </strong>
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong
+              ><p style="font-size: 0.85em; color: #555">
+                [3] Y. Shin, Z. Zhang, G. E. Karniadakis, "Theoretical
+                foundations of physics-informed neural networks and deep neural
+                operators: A brief review," in
+                <em>Handbook of Numerical Analysis</em>, vol. 25, Elsevier,
+                2024, pp. 293–358.
+                <a
+                  href="https://doi.org/10.1016/bs.hna.2024.05.008"
+                  target="_blank"
+                  >[DOI]</a
+                >
+              </p>
+            </strong>
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong
+              ><p style="font-size: 0.85em; color: #555">
+                [4] GeeksforGeeks, "Partial Differential Equations (PDEs) in
+                Deep Learning,"
+                <em>GeeksforGeeks</em>, May 2024.
+                <a
+                  href="https://www.geeksforgeeks.org/deep-learning/partial-differential-equations-pdes-in-deep-larning/#1-physicsinformed-neural-networks-pinns"
+                  target="_blank"
+                  >[Link]</a
+                >
+              </p>
+            </strong>
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong
+              ><p style="font-size: 0.85em; color: #555">
+                [5] Cornell Virtual Workshop, "Physics-Informed Training,"
+                <em>DeepONet: Operator Learning with Neural Networks</em>,
+                Cornell University.
+                <a
+                  href="https://cvw.cac.cornell.edu/SciML/deeponet/pi-deeponet-training"
+                  target="_blank"
+                  >[Link]</a
+                >
+              </p>
+            </strong>
           </li>
         </ul>
       </div>
