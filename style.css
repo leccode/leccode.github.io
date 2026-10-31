@@ -113,11 +113,11 @@ body {
   transition: border-color 0.3s;
 }
 
-.navbar-brand {
+/* .navbar-brand { Commented only for pumpkin event!
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
+} */
 
 .logo {
   font-weight: 700;
@@ -908,33 +908,34 @@ body {
 }
 
 /* ==========================================================
-   HALLOWEEN PUMPKIN — navbar brand (fully responsive)
+   HALLOWEEN PUMPKIN — navbar brand (responsive, mobile-safe)
    ========================================================== */
 
-/* Brand container: single row, no wrapping */
+/* Brand container — single row, logo + pumpkin side by side */
 .navbar-brand {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   position: relative;
   white-space: nowrap;
-  flex-shrink: 0; /* never let the brand collapse */
   min-width: 0;
+  max-width: 100%;
 }
 
-/* The pumpkin — scales with viewport, never hides */
+/* The pumpkin — never hides, scales with viewport */
 .pumpkin-logo {
   display: inline-block;
-  width: clamp(30px, 6vw, 80px); /* 30px on tiny → 80px on desktop */
-  height: auto; /* keep SVG aspect ratio */
+  width: clamp(28px, 6vw, 80px);
+  height: auto;
   flex: 0 0 auto;
   filter: drop-shadow(0 0 16px rgba(255, 140, 26, 0.75));
   animation: pumpkin-bob 3s ease-in-out infinite;
   transform-origin: center bottom;
   pointer-events: none;
   user-select: none;
+  vertical-align: middle;
 }
 
 /* Bob + gentle tilt */
@@ -948,26 +949,34 @@ body {
   }
 }
 
-/* Reduce bob distance on small screens so it doesn't clip */
-@media (max-width: 600px) {
-  @keyframes pumpkin-bob {
-    0%,
-    100% {
-      transform: translateY(0) rotate(-3deg);
-    }
-    50% {
-      transform: translateY(-3px) rotate(3deg);
-    }
-  }
-  .pumpkin-logo {
-    filter: drop-shadow(0 0 8px rgba(255, 140, 26, 0.65));
-  }
+/* Tablet — slightly smaller pumpkin & logo so they fit one row */
+@media (max-width: 768px) {
   .navbar-brand {
     gap: 8px;
   }
+  .logo {
+    font-size: 1.4rem;
+  }
+  .pumpkin-logo {
+    width: clamp(26px, 8vw, 40px);
+    filter: drop-shadow(0 0 8px rgba(255, 140, 26, 0.65));
+  }
 }
 
-/* Respect reduced-motion users */
+/* Phone — fixed small pumpkin, small logo */
+@media (max-width: 480px) {
+  .navbar-brand {
+    gap: 6px;
+  }
+  .logo {
+    font-size: 1.25rem;
+  }
+  .pumpkin-logo {
+    width: 28px;
+  }
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .pumpkin-logo {
     animation: none;
@@ -975,7 +984,7 @@ body {
   }
 }
 
-/* Warmer glow in light theme */
+/* Light theme glow */
 [data-theme="light"] .pumpkin-logo {
   filter: drop-shadow(0 0 14px rgba(200, 80, 0, 0.55));
 }
