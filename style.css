@@ -908,30 +908,32 @@ body {
 }
 
 /* ==========================================================
-   HALLOWEEN PUMPKIN — inline next to logo
+   HALLOWEEN PUMPKIN — navbar brand (fully responsive)
    ========================================================== */
 
-/* Brand container: force single row, no wrapping */
+/* Brand container: single row, no wrapping */
 .navbar-brand {
   display: flex;
-  flex-direction: row; /* explicit: side by side */
-  flex-wrap: nowrap; /* NEVER wrap to a new line */
-  align-items: center; /* vertically center both items */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: 12px;
   position: relative;
-  white-space: nowrap; /* prevent logo text from breaking */
+  white-space: nowrap;
+  flex-shrink: 0; /* never let the brand collapse */
+  min-width: 0;
 }
 
-/* The pumpkin — big, glowing, bobbing, inline */
+/* The pumpkin — scales with viewport, never hides */
 .pumpkin-logo {
-  display: inline-block; /* keeps it in the flex row */
-  width: 80px;
-  height: 86px;
-  flex: 0 0 auto; /* don't shrink, don't grow */
+  display: inline-block;
+  width: clamp(30px, 6vw, 80px); /* 30px on tiny → 80px on desktop */
+  height: auto; /* keep SVG aspect ratio */
+  flex: 0 0 auto;
   filter: drop-shadow(0 0 16px rgba(255, 140, 26, 0.75));
   animation: pumpkin-bob 3s ease-in-out infinite;
   transform-origin: center bottom;
-  pointer-events: none; /* never blocks nav clicks */
+  pointer-events: none;
   user-select: none;
 }
 
@@ -946,6 +948,25 @@ body {
   }
 }
 
+/* Reduce bob distance on small screens so it doesn't clip */
+@media (max-width: 600px) {
+  @keyframes pumpkin-bob {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-3deg);
+    }
+    50% {
+      transform: translateY(-3px) rotate(3deg);
+    }
+  }
+  .pumpkin-logo {
+    filter: drop-shadow(0 0 8px rgba(255, 140, 26, 0.65));
+  }
+  .navbar-brand {
+    gap: 8px;
+  }
+}
+
 /* Respect reduced-motion users */
 @media (prefers-reduced-motion: reduce) {
   .pumpkin-logo {
@@ -957,19 +978,4 @@ body {
 /* Warmer glow in light theme */
 [data-theme="light"] .pumpkin-logo {
   filter: drop-shadow(0 0 14px rgba(200, 80, 0, 0.55));
-}
-
-/* Tablet: slightly smaller */
-@media (max-width: 900px) {
-  .pumpkin-logo {
-    width: 60px;
-    height: 64px;
-  }
-}
-
-/* Phone: hidden so it never crowds the nav */
-@media (max-width: 600px) {
-  .pumpkin-logo {
-    display: none;
-  }
 }
