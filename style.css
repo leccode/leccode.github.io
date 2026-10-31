@@ -906,3 +906,70 @@ body {
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+/* ==========================================================
+   HALLOWEEN PUMPKIN — inline next to logo
+   ========================================================== */
+
+/* Brand container: force single row, no wrapping */
+.navbar-brand {
+  display: flex;
+  flex-direction: row; /* explicit: side by side */
+  flex-wrap: nowrap; /* NEVER wrap to a new line */
+  align-items: center; /* vertically center both items */
+  gap: 12px;
+  position: relative;
+  white-space: nowrap; /* prevent logo text from breaking */
+}
+
+/* The pumpkin — big, glowing, bobbing, inline */
+.pumpkin-logo {
+  display: inline-block; /* keeps it in the flex row */
+  width: 80px;
+  height: 86px;
+  flex: 0 0 auto; /* don't shrink, don't grow */
+  filter: drop-shadow(0 0 16px rgba(255, 140, 26, 0.75));
+  animation: pumpkin-bob 3s ease-in-out infinite;
+  transform-origin: center bottom;
+  pointer-events: none; /* never blocks nav clicks */
+  user-select: none;
+}
+
+/* Bob + gentle tilt */
+@keyframes pumpkin-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(4deg);
+  }
+}
+
+/* Respect reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  .pumpkin-logo {
+    animation: none;
+    filter: drop-shadow(0 0 12px rgba(255, 140, 26, 0.6));
+  }
+}
+
+/* Warmer glow in light theme */
+[data-theme="light"] .pumpkin-logo {
+  filter: drop-shadow(0 0 14px rgba(200, 80, 0, 0.55));
+}
+
+/* Tablet: slightly smaller */
+@media (max-width: 900px) {
+  .pumpkin-logo {
+    width: 60px;
+    height: 64px;
+  }
+}
+
+/* Phone: hidden so it never crowds the nav */
+@media (max-width: 600px) {
+  .pumpkin-logo {
+    display: none;
+  }
+}
