@@ -100,3 +100,11 @@ export function LinkedInIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function ArrowUpIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  );
+}

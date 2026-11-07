@@ -5,6 +5,7 @@ import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Blog } from "@/components/sections/Blog";
 import { Contact } from "@/components/sections/Contact";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -29,6 +30,7 @@ export default function HomePage() {
       <Projects />
       <Blog />
       <Contact />
+      <ScrollToTop />
     </>
   );
 }
