@@ -27,7 +27,7 @@ export function Hero() {
 
           <p className="mt-6 max-w-xl text-lg text-pretty text-muted sm:text-xl">
             Software engineer building production systems. Biomedical engineer
-            researching physics-informed neural networks.
+            researching mechanistic neural networks.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">

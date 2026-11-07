@@ -4,7 +4,7 @@ export const siteConfig = {
   role: "Software Engineer",
   url: "https://leccode.github.io",
   description:
-    "Software engineer building production systems and biomedical engineer researching physics-informed neural networks.",
+    "Software engineer building production systems and biomedical engineer researching mechanistic neural networks.",
   email: "costas.lekkos@gmail.com",
   socials: {
     github: "https://github.com/leccode",

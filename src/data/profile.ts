@@ -13,7 +13,7 @@ export const education: readonly Education[] = [
     institution: "Harokopio University of Athens (HUA)",
     status: "In progress",
     summary:
-      "Physics-informed neural networks, quantum computing and hardware for bioinformatics.",
+      "Mechanistic neural networks, quantum computing and hardware for bioinformatics.",
   },
   {
     degree: "MSc, Microsystems & Nanodevices",

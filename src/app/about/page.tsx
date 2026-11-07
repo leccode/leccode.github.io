@@ -22,9 +22,8 @@ export default function AboutPage() {
         </p>
         <p>
           I’m pursuing an MPhil in Computer Science and Informatics, researching
-          physics-informed neural networks, quantum computing and hardware
-          approaches in bioinformatics. I also hold an MEng in Biomedical
-          Engineering.
+          mechanistic neural networks, quantum computing and hardware approaches
+          in bioinformatics. I also hold an MEng in Biomedical Engineering.
         </p>
         <p>
           For over four years I’ve built backend and full-stack production
