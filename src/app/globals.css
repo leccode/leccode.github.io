@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/* `dark:` utilities follow the data-theme attribute set by the theme script. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ============================================================
+   Design tokens
+   One source of truth for both themes. Components never use raw hex values.
+   ============================================================ */
+:root {
+  color-scheme: light;
+
+  --bg: #f4f6fb;
+  --surface: rgb(255 255 255 / 0.78);
+  --surface-strong: #ffffff;
+  --fg: #0b1530;
+  --muted: #4a5878;
+  --line: #d6dcea;
+  --accent: #1f5fd1;
+  --accent-fg: #ffffff;
+  --signal: #13915a;
+
+  --neural-node: #1f5fd1;
+  --neural-signal: #13915a;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0a1022;
+  --surface: rgb(17 25 48 / 0.72);
+  --surface-strong: #111930;
+  --fg: #e6eaf4;
+  --muted: #93a0ba;
+  --line: #233050;
+  --accent: #7cc4ff;
+  --accent-fg: #06122a;
+  --signal: #5ee89a;
+
+  --neural-node: #6aa8ff;
+  --neural-signal: #5ee89a;
+}
+
+/* Expose tokens to Tailwind: bg-bg, text-fg, text-muted, border-line, text-accent… */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-signal: var(--signal);
+
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  html {
+    background-color: var(--bg);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Keep anchored sections clear of the sticky header. */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ============================================================
+   Shared utilities
+   ============================================================ */
+
+/* Translucent surface that lets the neural background show through. */
+@utility panel {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+/* Body links inside running text. */
+@utility text-link {
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 150ms ease;
+
+  &:hover {
+    text-decoration-color: var(--accent);
+  }
+}
