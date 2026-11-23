@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+/*
+ * Structure
+ *  1. Variants & registered properties
+ *  2. Color tokens (light / dark), driven by a single --hue
+ *  3. @theme: design tokens → Tailwind utilities (bg-accent, text-2xs, ease-out-expo, …)
+ *  4. @layer base: element defaults
+ *  5. @utility: reusable patterns (btn, tag, chip, eyebrow, link, …)
+ *  6. @layer components: multi-part styles (spotlight card, code tokens)
+ */
+
+/* ---------- 1. Variants & registered properties ---------- */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Registered so the accent hue animates smoothly when the accent color changes */
+@property --hue {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 285;
+}
+
+/* ---------- 2. Color tokens ---------- */
+
+:root {
+  --hue: 285;
+  --bg: oklch(0.985 0.004 var(--hue));
+  --fg: oklch(0.21 0.02 var(--hue));
+  --muted: oklch(0.5 0.02 var(--hue));
+  --card: oklch(1 0 0 / 0.65);
+  --border: oklch(0.25 0.03 var(--hue) / 0.1);
+  --accent: oklch(0.58 0.21 var(--hue));
+  --accent-2: oklch(0.68 0.18 calc(var(--hue) + 55));
+  --accent-fg: oklch(0.99 0 0);
+  --grid: oklch(0.25 0.03 var(--hue) / 0.06);
+  --code-bg: oklch(0.17 0.02 var(--hue) / 0.92);
+  --code-fg: oklch(0.9 0.01 var(--hue));
+
+  transition: --hue 700ms var(--ease-in-out-soft);
+}
+
+.dark {
+  --bg: oklch(0.13 0.012 var(--hue));
+  --fg: oklch(0.96 0.006 var(--hue));
+  --muted: oklch(0.68 0.02 var(--hue));
+  --card: oklch(0.2 0.018 var(--hue) / 0.55);
+  --border: oklch(1 0 0 / 0.08);
+  --accent: oklch(0.72 0.19 var(--hue));
+  --accent-2: oklch(0.78 0.15 calc(var(--hue) + 55));
+  --accent-fg: oklch(0.14 0.02 var(--hue));
+  --grid: oklch(1 0 0 / 0.04);
+}
+
+/* ---------- 3. Design tokens ---------- */
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-fg: var(--accent-fg);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+}
+
+@theme {
+  /* Small type steps for labels, tags and code */
+  --text-3xs: 0.625rem;
+  --text-3xs--line-height: 0.875rem;
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1rem;
+  --text-code: 0.8125rem;
+  --text-code--line-height: 1.5rem;
+
+  /* Display headings and eyebrow labels */
+  --tracking-display: -0.04em;
+  --tracking-eyebrow: 0.25em;
+  --leading-display: 1.02;
+
+  /* Motion (mirrored in src/lib/motion.ts for JS animations) */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Large soft glows behind sections */
+  --blur-glow: 120px;
+
+  --animate-marquee: marquee var(--duration, 40s) linear infinite;
+  --animate-blob: blob 18s ease-in-out infinite;
+  --animate-blink: blink 1s steps(2, start) infinite;
+  --animate-shine: shine 6s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes blob {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(8%, -10%) scale(1.15);
+    }
+    66% {
+      transform: translate(-10%, 6%) scale(0.92);
+    }
+  }
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+}
+
+/* ---------- 4. Base ---------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    scrollbar-gutter: stable;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--accent) 35%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  /* The skip link targets <main>; it shouldn't show a focus ring itself */
+  main:focus {
+    outline: none;
+  }
+
+  /* Circular theme reveal (View Transitions API) — see theme-provider.tsx */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------- 5. Reusable utilities ---------- */
+
+/* Buttons: combine a size and a variant → `btn btn-md btn-primary` */
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition active:scale-95;
+}
+@utility btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+@utility btn-md {
+  @apply px-6 py-3.5 text-sm;
+}
+@utility btn-lg {
+  @apply px-7 py-4 text-base;
+}
+@utility btn-primary {
+  @apply bg-fg text-bg;
+}
+@utility btn-secondary {
+  @apply border border-border bg-card backdrop-blur hover:border-accent/50;
+}
+
+/* Round icon button; set the size alongside (`icon-btn size-9`) */
+@utility icon-btn {
+  @apply grid shrink-0 place-items-center rounded-full transition hover:bg-fg/7;
+}
+
+/* Outlined round social/icon link */
+@utility social-btn {
+  @apply grid size-11 shrink-0 place-items-center rounded-full border border-border bg-card text-muted backdrop-blur transition hover:border-accent/50 hover:text-accent;
+}
+
+/* Small monospace technology label */
+@utility tag {
+  @apply rounded-md border border-border px-2 py-0.5 font-mono text-2xs text-muted;
+}
+
+/* Rounded pill: filters, link chips, "Also:" items */
+@utility chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-sm transition hover:border-accent/50 hover:text-accent;
+}
+
+/* Status pill; add colors alongside (`badge bg-accent/10 text-accent`) */
+@utility badge {
+  @apply inline-flex w-fit items-center rounded-full px-2.5 py-0.5 font-mono text-xs;
+}
+
+/* Uppercase mono label; set size and color alongside (`eyebrow text-2xs text-muted`) */
+@utility eyebrow {
+  @apply font-mono tracking-widest uppercase;
+}
+
+/* Inline text link */
+@utility link {
+  @apply font-medium text-fg underline decoration-accent/40 decoration-2 underline-offset-4 transition-colors hover:decoration-accent;
+}
+
+/* Frosted panel */
+@utility glass {
+  @apply border border-border bg-card backdrop-blur;
+}
+
+@utility text-gradient {
+  background: linear-gradient(
+    110deg,
+    var(--accent) 10%,
+    var(--accent-2) 60%,
+    var(--accent) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-shine);
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 40%,
+    #000 30%,
+    transparent 75%
+  );
+}
+
+@utility noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+
+  &:where(.dark, .dark *) {
+    opacity: 0.06;
+  }
+}
+
+@utility mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ---------- 6. Components ---------- */
+
+@layer components {
+  /* Spotlight card: a glow + glowing border that follow the pointer (--mx / --my set in JS) */
+  .spotlight::before,
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+  .spotlight::before {
+    background: radial-gradient(
+      520px circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in oklch, var(--accent) 13%, transparent),
+      transparent 45%
+    );
+  }
+  .spotlight::after {
+    padding: 1px;
+    background: radial-gradient(
+      320px circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in oklch, var(--accent) 80%, transparent),
+      transparent 60%
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+  }
+  .spotlight:hover::before,
+  .spotlight:hover::after {
+    opacity: 1;
+  }
+
+  /* Code windows are always dark, in both themes */
+  .code-window {
+    background: var(--code-bg);
+    color: var(--code-fg);
+  }
+  .tok-kw {
+    color: oklch(0.76 0.16 var(--hue));
+  }
+  .tok-str {
+    color: oklch(0.82 0.14 150);
+  }
+  .tok-num {
+    color: oklch(0.82 0.14 60);
+  }
+  .tok-com {
+    color: oklch(0.58 0.02 var(--hue));
+    font-style: italic;
+  }
+  .tok-fn {
+    color: oklch(0.82 0.12 230);
+  }
+  .tok-type {
+    color: oklch(0.84 0.13 calc(var(--hue) + 55));
+  }
+  .tok-prop {
+    color: oklch(0.86 0.06 var(--hue));
+  }
+  .tok-tag {
+    color: oklch(0.78 0.15 15);
+  }
+  .tok-punc {
+    color: oklch(0.65 0.02 var(--hue));
+  }
+  .tok-op {
+    color: oklch(0.75 0.08 var(--hue));
+  }
+}
